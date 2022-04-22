@@ -14,7 +14,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('home');
 });
 
 Route::get('/dashboard', function () {
@@ -24,3 +24,6 @@ Route::get('/dashboard', function () {
 require __DIR__.'/auth.php';
 
 Route::view('/test', 'test');
+Route::view('contact', 'contact')->name('contact');
+Route::view('faqs', 'faq')->name('faq');
+Route::view('about', 'about')->name('about');
