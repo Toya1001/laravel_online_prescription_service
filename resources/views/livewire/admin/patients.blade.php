@@ -356,9 +356,6 @@
             </div>
         </div>
     </section>
-
-
-
     @endif
 
     @if($history)

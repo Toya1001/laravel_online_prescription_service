@@ -16,6 +16,19 @@ class Patients extends Component
     public $historyData, $allergies, $illness, $pregnant, $medicalHistoryId, $patientId, $addPatient, $patientID, $userID;
     public $firstName, $lastName, $email, $trn, $gender, $address, $city, $parish, $dob, $phone, $mxNo;
 
+    protected $rules = [
+        'firstName' => 'required|string',
+        'lastName' => 'required|string',
+        'email' => 'required|email|unique:users,email',
+        'trn' => 'required',
+        'address' => 'required|string',
+        'city' => 'required|string',
+        'parish' => 'required',
+        'phone' => 'required',
+        'mxNo' => 'required',
+        'dob' => 'required',
+        'gender' => 'required',
+    ];
 
     public function createMxNo(){
     $this->mxNo = 'MX' . mt_rand(10000, 999999);
@@ -23,7 +36,7 @@ class Patients extends Component
 
     public function createPatient()
     {
-        $this->mxNo = "MX" . mt_rand(100000, 999999);
+        $this->validate();
         Http::post('http://192.168.0.2:8080/api/user', [
             'fname' => $this->firstName,
             'lname' => $this->lastName,
@@ -75,6 +88,7 @@ class Patients extends Component
 
     public function updatePatient()
     {
+        $this->validate();
         Http::put('http://192.168.0.2:8080/api/user/' . $this->userID, [
             'fname' => $this->firstName,
             'lname' => $this->lastName,
