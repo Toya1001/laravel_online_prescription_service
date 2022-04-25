@@ -29,4 +29,6 @@ Route::view('faqs', 'faq')->name('faq');
 Route::view('about', 'about')->name('about');
 Route::view('dashboard', 'admin.dashboard');
 Route::view('admin/patient', 'admin.patients')->name('admin.patient');
+Route::view('admin/doctor', 'admin.doctors')->name('admin.doctor');
+
 
