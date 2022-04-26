@@ -32,5 +32,6 @@ Route::view('admin/patient', 'admin.patients')->name('admin.patient');
 Route::view('admin/doctor', 'admin.doctors')->name('admin.doctor');
 Route::view('admin/pharmacist', 'admin.pharmacist')->name('admin.pharmacist');
 Route::view('admin/drug', 'admin.drugs')->name('admin.drug');
+Route::view('admin/prescription', 'admin.prescriptions')->name('admin.prescription');
 
 
