@@ -8,7 +8,14 @@ use Livewire\WithPagination;
 
 class Prescriptions extends Component
 {
-    use WithPagination; 
+    use WithPagination;
+    public $viewInfo  = false;
+    public $singlePrescription;
+
+    public function viewPrescription($id){
+        $this->viewInfo = true;
+        $this->singlePrescription = Prescription::find($id);
+    }
 
     public function render()
     {

@@ -25,7 +25,8 @@ class Doctor extends Component
         'license' => 'required'
     ];
 
-    public function createDoctor(){
+    public function createDoctor()
+    {
         $this->validate();
 
         $id = User::create([
@@ -37,16 +38,16 @@ class Doctor extends Component
         ])->id;
 
         ModelsDoctor::create([
-            'user_id' =>$id,
+            'user_id' => $id,
             'license_no' => $this->license,
             'work_name' => $this->company,
             'work_address' => $this->address
         ]);
-        return redirect()->route('admin.doctor');   
-        
+        return redirect()->route('admin.doctor');
     }
 
-    public function editDoctor($id){
+    public function editDoctor($id)
+    {
         $this->doctorEdit = true;
         $singleDoctor = ModelsDoctor::find($id);
         $this->license = $singleDoctor->license_no;
@@ -61,7 +62,8 @@ class Doctor extends Component
         $this->email = $singleUser->email;
     }
 
-    public function updateDoctor(){
+    public function updateDoctor()
+    {
         $this->validate();
         ModelsDoctor::where('id', $this->doctorId)->update([
             'license_no' => $this->license,
@@ -74,12 +76,12 @@ class Doctor extends Component
             'lname' => $this->lastName,
             'email' => $this->email
         ]);
-        return redirect()->route('admin.doctor');    
+        return redirect()->route('admin.doctor');
     }
 
-    public function deleteDoctor($id){
+    public function deleteDoctor($id)
+    {
         ModelsDoctor::where('id', $id)->delete();
-
     }
     public function render()
     {
