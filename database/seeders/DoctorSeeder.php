@@ -18,7 +18,7 @@ class DoctorSeeder extends Seeder
     public function run()
     {
         for ($i = 0; $i < 10; $i++) {
-            $userId = rand(1,10);
+            $userId = rand(11,20);
             $docData[] = [
                 'user_id'=> $userId,
                 'license_no' => Str::random(10),

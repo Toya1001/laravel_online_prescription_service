@@ -19,7 +19,7 @@ class PatientSeeder extends Seeder
     {
         $faker = \Faker\Factory::create();
         for ($i = 0; $i < 10; $i++) {
-            $userId = rand(11, 20);
+            $userId = rand(1, 10);
             $patientData[] = [
                 'user_id' => $userId,
                 'mx_no' => $faker->randomNumber(),

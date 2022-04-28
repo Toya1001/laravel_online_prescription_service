@@ -19,7 +19,7 @@ Route::get('/', function () {
 
 Route::get('/dashboard', function () {
     return view('dashboard');
-})->middleware(['auth'])->name('dashboard');
+})->middleware(['auth', 'dashredirect'])->name('dashboard');
 
 require __DIR__.'/auth.php';
 
@@ -27,13 +27,14 @@ Route::view('/test', 'test');
 Route::view('contact', 'contact')->name('contact');
 Route::view('faqs', 'faq')->name('faq');
 Route::view('about', 'about')->name('about');
-Route::view('dashboard', 'admin.dashboard');
+Route::view('admin', 'admin.dashboard')->name('admin.dashboard');
 Route::view('admin/patient', 'admin.patients')->name('admin.patient');
 Route::view('admin/doctor', 'admin.doctors')->name('admin.doctor');
 Route::view('admin/pharmacist', 'admin.pharmacist')->name('admin.pharmacist');
 Route::view('admin/drug', 'admin.drugs')->name('admin.drug');
 Route::view('admin/prescription', 'admin.prescriptions')->name('admin.prescription');
-Route::view('doctor/dashboard', 'doctor.dashboard')->name('doctor.dashboard');
+Route::view('doctor', 'doctor.dashboard')->name('doctor.dashboard');
 Route::view('doctor/prescription', 'doctor.prescriptions')->name('doctor.prescription');
+Route::view('doctor/patient', 'doctor.patients')->name('doctor.patient');
 
 

@@ -18,6 +18,7 @@ return new class extends Migration
             $table->foreignId('patient_id')->constrained();
             $table->foreignId('doctor_id')->constrained();
             $table->foreignId('drug_id')->constrained();
+            $table->string('rx_no');
             $table->string('dosage');
             $table->bigInteger('quantity')->unsigned();
             $table->longText('directions');

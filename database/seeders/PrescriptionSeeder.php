@@ -25,6 +25,7 @@ class PrescriptionSeeder extends Seeder
                 'patient_id' => $patientId,
                 'doctor_id' =>  rand(1, 10),
                 'drug_id' =>  rand(1, 20),
+                'rx_no' => "RX".$faker->numberBetween(10000, 99999),
                 'dosage' => $faker->sentence($nbWords = 6, $variableNbWords = true),
                 'quantity' => $faker->randomDigit(),
                 'directions' =>  $faker->sentence($nbWords = 6, $variableNbWords = true),
