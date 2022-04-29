@@ -5,7 +5,7 @@
 
 
      @if($addDoctor)
-      <section class="absolute left-0 top-0 flex justify-center items-center z-10 bg-black bg-opacity-75 w-full h-max py-1">
+      <section class="absolute left-0 top-0 flex justify-center items-center z-10 bg-black bg-opacity-75 w-full h-full py-1">
           <div class="w-full lg:w-6/12 px-4 mt-6">
               <div class="bg-white flex-col min-w-0 break-words w-full mb-6 shadow-lg rounded-lg bg-blueGray-100 border-0">
                   <div class="rounded-t bg-white mb-0 px-6 py-6   ">

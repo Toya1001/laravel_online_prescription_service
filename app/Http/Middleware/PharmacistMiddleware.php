@@ -17,7 +17,7 @@ class PharmacistMiddleware
      */
     public function handle(Request $request, Closure $next)
     {
-        if (Auth::user()->user_type !== "Admin") {
+        if (Auth::user()->user_type !== "Pharmacist") {
             return redirect()->back();
         }
         return $next($request);

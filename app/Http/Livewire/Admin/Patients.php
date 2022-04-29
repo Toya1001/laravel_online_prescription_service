@@ -17,10 +17,10 @@ class Patients extends Component
     public $firstName, $lastName, $email, $trn, $gender, $address, $city, $parish, $dob, $phone, $mxNo;
 
     protected $rules = [
-        'firstName' => 'required|string',
-        'lastName' => 'required|string',
+        'firstName' => 'required|string|min:2',
+        'lastName' => 'required|string|min:2',
         'email' => 'required|email|unique:users,email',
-        'trn' => 'required',
+        'trn' => 'required|min:9',
         'address' => 'required|string',
         'city' => 'required|string',
         'parish' => 'required',
@@ -29,6 +29,10 @@ class Patients extends Component
         'dob' => 'required',
         'gender' => 'required',
     ];
+
+    public function updated($propertyName){
+        $this->validateOnly($propertyName);
+    }
 
     public function createMxNo(){
     $this->mxNo = 'MX' . mt_rand(10000, 999999);
