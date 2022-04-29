@@ -22,7 +22,7 @@ class PatientSeeder extends Seeder
             $userId = rand(1, 10);
             $patientData[] = [
                 'user_id' => $userId,
-                'mx_no' => $faker->randomNumber(),
+                'mx_no' => "MX".$faker->randomNumber(),
                 'trn' =>  $faker->randomNumber(),
                 'gender' => $faker->randomElement(['Male', 'Female', 'Other']),
                 'dob' => $faker->date(),
