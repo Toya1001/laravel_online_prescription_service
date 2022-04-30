@@ -17,6 +17,21 @@ class Prescriptions extends Component
     public $patientName = '';
     public $drug, $quantity, $duration, $repeat, $directions, $doctors, $drugs, $patient;
 
+    protected $rules =[
+        'drug' => 'required',
+            'quantity' => 'required',
+            'duration' => 'required',
+            'repeat' => 'required',
+            'directions' => 'required',
+            'doctors' => 'required',
+            'drugs' => 'required',
+            'patient' => 'required',
+    ];
+
+    public function updated($propertyName){
+        $this->validateOnly($propertyName);
+    }
+    
     public function mount()
     {
     }
@@ -40,6 +55,10 @@ class Prescriptions extends Component
     {
         
         Prescription::create([]);
+    }
+
+    public function editPrescription($id){
+
     }
 
     public function viewPrescription($id)

@@ -30,7 +30,7 @@
                                 <div class="w-full">
                                     <div class="relative w-full mb-3">
                                         <label class="block uppercase text-blueGray-600 text-xs font-bold mb-2" htmlfor="grid-password">Patient Name</label>
-                                        <input wire:model="patientNames" wire:keydown.backspace="clear" type="text" class="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150" placeholder="Enter First Name">
+                                        <input wire:model="patientName" wire:keydown.backspace="clear" type="text" class="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150" placeholder="Enter First Name">
                                         @error('patientName')<span class="text-xs text-red-600">{{
                                             $message }}</span>@enderror
                                         @if(!empty($patientName))
@@ -38,8 +38,8 @@
 
                                             @if(!empty($patient))
                                             @foreach($patient as $patients)
-                                            <p>{{ $patients['fname'] }}, {{ $patients['lname'] }}</p>
-                                            @endforeach
+                                            <option value="{{ $patients['id'] }}">{{ $patients['fname'] }}, {{ $patients['lname'] }}</option>
+                                             @endforeach
                                             @else
                                             <div class="list-none">
                                                 No results!
@@ -156,6 +156,17 @@
           ">
                 <div>
                     <div class="text-center flex justify-end"><i wire:click="$set('viewInfo', false)" class="fas fa-times text-2xl cursor-pointer"></i></div>
+                    
+                      <h2 class="
+                  mb-4
+                  text-2xl
+                  font-semibold
+                 
+                  text-black
+                  uppercase
+                  text-center
+                "> Prescription </h2>
+
                     <div class="mt-3 text-left sm:mt-5">
                         <h2 class="
                   mb-4
@@ -211,8 +222,16 @@
                             <p class="leading-relaxed text-base"><span class="font-medium"> Dosage: </span>{{ $prescription->dosage}}</p>
                             <p class="leading-relaxed text-base"><span class="font-medium">Directions :</span>{{ $prescription->directions}}</p>
                             <button wire:click.prevent="viewPrescription({{ $prescription->id }})" type="button" class="border border-indigo-500 bg-black text-white rounded-md px-4 py-2 mx-2 mt-4 transition duration-500 ease select-none hover:bg-indigo-600 focus:outline-none focus:shadow-outline">
-                                View Prescription
+                                View 
                             </button>
+                            <button wire:click.prevent="viewPrescription({{ $prescription->id }})" type="button" class="border border-indigo-500 bg-black text-white rounded-md px-4 py-2 mx-2 mt-4 transition duration-500 ease select-none hover:bg-indigo-600 focus:outline-none focus:shadow-outline">
+                                Edit
+                            </button>
+                            <button wire:click.prevent="viewPrescription({{ $prescription->id }})" type="button" class="border border-indigo-500 bg-black text-white rounded-md px-4 py-2 mx-2 mt-4 transition duration-500 ease select-none hover:bg-indigo-600 focus:outline-none focus:shadow-outline">
+                                Delete
+                            </button>
+
+
 
                         </div>
                     </div>

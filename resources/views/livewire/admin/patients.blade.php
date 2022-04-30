@@ -185,7 +185,7 @@
     @endif
 
     @if($patientEdit)
-    <section class="absolute left-0 top-0 flex justify-center items-center z-10 bg-black bg-opacity-75 w-full h-max py-1">
+    <section class="absolute left-0 top-0 flex justify-center items-center z-10 bg-black bg-opacity-75 w-full h-full py-1">
         <div class="w-full lg:w-6/12 px-4 mt-6">
             <div class="bg-white flex-col min-w-0 break-words w-full mb-6 shadow-lg rounded-lg bg-blueGray-100 border-0">
                 <div class="rounded-t bg-white mb-0 px-6 py-6   ">
@@ -408,7 +408,11 @@
                                         <label class="block uppercase text-blueGray-600 text-xs font-bold mb-2" htmlfor="grid-password">
                                             Pregnant/Nursing
                                         </label>
-                                        <input wire:model="pregnant" type="text" class="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150" placeholder="Enter Email Address">
+                                        <select wire:model="pregnant" class="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150" placeholder="Enter Email Address">
+                                        <option value="">Select...</option>
+                                        <option value="1">Yes</option>
+                                        <option value="0">No</option>
+                                        </select>
                                         @error('pregnant')<span class="text-xs text-red-600">{{
                                             $message }}</span>@enderror
                                     </div>

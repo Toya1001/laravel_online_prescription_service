@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Livewire\Admin;
+namespace App\Http\Livewire\Pharmacist;
 
 use App\Models\Doctor as ModelsDoctor;
 use App\Models\User;
@@ -25,7 +25,8 @@ class Doctor extends Component
         'license' => 'required'
     ];
 
-    public function updated($propertyName){
+    public function updated($propertyName)
+    {
         $this->validateOnly($propertyName);
     }
 
@@ -90,7 +91,7 @@ class Doctor extends Component
     public function render()
     {
         $doctor = ModelsDoctor::with('user')->paginate(4);
-        return view('livewire.admin.doctor', [
+        return view('livewire.pharmacist.doctor', [
             'doctor' => $doctor,
         ]);
     }

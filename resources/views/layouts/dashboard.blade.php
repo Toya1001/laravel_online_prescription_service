@@ -276,7 +276,7 @@
                                     <img class="inline-block rounded-full h-9 w-9" src="./images/wickedlabslogo.jpg" alt="">
                                 </div>
                                 <div class="ml-3">
-                                    <p class="text-sm font-medium text-neutral-200">Wicked Labs</p>
+                                    <p class="text-sm font-medium text-neutral-200"></p>
                                 </div>
                             </div>
                         </a>
