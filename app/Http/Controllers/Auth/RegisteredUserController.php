@@ -20,7 +20,7 @@ class RegisteredUserController extends Controller
      */
     public function create()
     {
-        return view('auth.register');
+        return view('register');
     }
 
     /**
@@ -34,16 +34,32 @@ class RegisteredUserController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'name' => ['required', 'string', 'max:255'],
+            'fname' => ['required', 'string', 'max:255'],
+            'lname' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'confirmed', Rules\Password::defaults()],
         ]);
 
-        $user = User::create([
-            'name' => $request->name,
-            'email' => $request->email,
-            'password' => Hash::make($request->password),
-        ]);
+        if ($request->user_type) {
+            $user = User::create([
+                'fname' => $request->fname,
+                'lname' => $request->lname,
+                'email' => $request->email,
+                'password' => Hash::make($request->password),
+                'user_type' => $request->user_type,
+            ]);
+        } else {
+
+            $user = User::create([
+                'fname' => $request->fname,
+                'lname' => $request->lname,
+                'email' => $request->email,
+                'password' => Hash::make($request->password),
+                'user_type' => 'Patient',
+            ]);
+        }
+
+
 
         event(new Registered($user));
 
