@@ -54,10 +54,11 @@ Route::middleware(['auth', 'patient'])->group(function () {
     Route::view('patient', 'patient.dashboard')->name('patient.dashboard');
     Route::view('patient/prescription', 'patient.prescription')->name('patient.prescription');
     Route::view('patient/profile', 'patient.information')->name('patient.profile');
+    Route::view('patient/profile', 'patient.orders')->name('patient.order');
 
 });
 
-Route::view('/test', 'test');
+// Route::view('/test', 'test');
 Route::view('contact', 'contact')->name('contact');
 Route::view('faqs', 'faq')->name('faq');
 Route::view('about', 'about')->name('about');
