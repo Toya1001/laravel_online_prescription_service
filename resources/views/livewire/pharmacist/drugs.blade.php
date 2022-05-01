@@ -228,8 +228,8 @@
                 </td>
                 <td class="w-full lg:w-auto p-3 text-gray-800 text-center border border-b text-center block lg:table-cell relative lg:static">
                     <span class="lg:hidden absolute top-0 left-0 bg-blue-200 px-2 py-1 text-xs font-bold uppercase">Actions</span>
-                    <button wire:click="drugEdit({{ $drugs->id }})" class="border border-indigo-500 bg-black text-white rounded-md mb-10 px-4 py-2 mx-2 mt-4 transition duration-500 ease select-none hover:bg-indigo-600 focus:outline-none focus:shadow-outline">Edit</a>
-                        <button wire:click="drugEdit({{ $drugs->id }})" class="border border-indigo-500 bg-black text-white rounded-md mb-10 px-4 py-2 mx-2 mt-4 transition duration-500 ease select-none hover:bg-indigo-600 focus:outline-none focus:shadow-outline">Delete</a>
+                    <button wire:click="drugEdit({{ $drugs->id }})" class="border border-indigo-500 bg-black text-white rounded-md mb-10 px-4 py-2 mx-2 mt-4 transition duration-500 ease select-none hover:bg-indigo-600 focus:outline-none focus:shadow-outline">Edit</button>
+                        <button wire:click="drugEdit({{ $drugs->id }})" class="border border-indigo-500 bg-black text-white rounded-md mb-10 px-4 py-2 mx-2 mt-4 transition duration-500 ease select-none hover:bg-indigo-600 focus:outline-none focus:shadow-outline">Delete</button>
                 </td>
             </tr>
             @endforeach

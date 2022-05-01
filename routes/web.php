@@ -45,12 +45,11 @@ Route::middleware(['auth', 'pharmacist'])->group(function () {
     Route::view('pharmacist/drug', 'pharmacist.drugs')->name('pharmacist.drug');
     Route::view('pharmacist/prescription', 'pharmacist.prescriptions')->name('pharmacist.prescription');
     Route::view('pharmacist/doctor', 'pharmacist.doctors')->name('pharmacist.doctor');
-
+    Route::view('pharmacist/order', 'pharmacist.order')->name('pharmacist.order');
 
 });
 
 Route::middleware(['auth', 'patient'])->group(function () {
-    // prescription, profile, make request
 
     Route::view('patient', 'patient.dashboard')->name('patient.dashboard');
     Route::view('patient/prescription', 'patient.prescription')->name('patient.prescription');
