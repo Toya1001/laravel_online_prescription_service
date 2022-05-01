@@ -3,6 +3,8 @@
 namespace App\Http\Livewire\Doctor;
 
 use App\Models\Doctor;
+use App\Models\Drug;
+use App\Models\Patient;
 use App\Models\Prescription;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
@@ -15,7 +17,7 @@ class Prescriptions extends Component
     public $addPrescription = false;
     public $singlePrescription;
     public $patientName = '';
-    public $drug, $quantity, $duration, $repeat, $directions, $doctors, $drugs, $patient;
+    public $drug, $quantity, $duration, $repeat, $directions, $doctors,  $drugs, $patient;
 
     protected $rules =[
         'drug' => 'required',
@@ -68,12 +70,18 @@ class Prescriptions extends Component
     }
     public function render()
     {
-
+        $drugs= Drug::all();
+        $patient = Patient::all();
+        $doctors = Doctor::with('user')->get();
         $docId = Doctor::where('user_id', Auth::id())->value('id');
         // dd($docId);
         $doctor = Prescription::where('doctor_id', $docId)->orderByDesc('id')->paginate(6);
         return view('livewire.doctor.prescriptions', [
             'doctor' => $doctor,
+            'drugs' => $drugs,
+            'patient' =>  $patient, 
+            'doctors' => $doctors
+
         ]);
     }
 }

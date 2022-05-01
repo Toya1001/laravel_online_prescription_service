@@ -30,23 +30,15 @@
                                 <div class="w-full">
                                     <div class="relative w-full mb-3">
                                         <label class="block uppercase text-blueGray-600 text-xs font-bold mb-2" htmlfor="grid-password">Patient Name</label>
-                                        <input wire:model="patientName" wire:keydown.backspace="clear" type="text" class="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150" placeholder="Enter First Name">
+                                        <select wire:model="patientName" wire:keydown.backspace="clear" type="text" class="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150" placeholder="Enter First Name">
+                                            <option value-"">Select...</option>
+                                            @foreach($patient as $patients)
+                                            <option value="{{ $patients->id }}">{{$patients->user->lname  }}, {{ $paitents->user->fname }}</option>
+                                            @endforeach
+                                        </select>
                                         @error('patientName')<span class="text-xs text-red-600">{{
                                             $message }}</span>@enderror
-                                        @if(!empty($patientName))
-                                        <div class="absolute z-20 list-none px-3 py-3 bg-white w-full shadow-lg">
-
-                                            @if(!empty($patient))
-                                            @foreach($patient as $patients)
-                                            <option value="{{ $patients['id'] }}">{{ $patients['fname'] }}, {{ $patients['lname'] }}</option>
-                                             @endforeach
-                                            @else
-                                            <div class="list-none">
-                                                No results!
-                                            </div>
-                                            @endif
-                                            @endif
-                                        </div>
+                                       
                                     </div>
 
                                     <div class="w-full">
