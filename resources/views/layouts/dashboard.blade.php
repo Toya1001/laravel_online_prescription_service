@@ -66,7 +66,7 @@
                         bg-neutral-900
                         border-neutral-900
                         focus:shadow-outline
-                      " white="" 70="" href="#">
+                      " white="" 70="" href="{{ route('admin.dashboard') }}">
                                       <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path>
                                       </svg>
@@ -92,7 +92,7 @@
                         bg-neutral-900
                         border-neutral-900
                         focus:shadow-outline
-                      " white="" 70="" href="#">
+                      " white="" 70="" href="{{ route('admin.patient') }}">
                                       <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path>
                                       </svg>
@@ -119,7 +119,7 @@
                         bg-neutral-900
                         border-neutral-900
                         focus:shadow-outline
-                      " white="" 70="" href="#">
+                      " white="" 70="" href="{{ route('admin.pharmacist') }}">
                                       <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path>
                                       </svg>
@@ -145,7 +145,7 @@
                         bg-neutral-900
                         border-neutral-900
                         focus:shadow-outline
-                      " white="" 70="" href="#">
+                      " white="" 70="" href="{{ route('admin.doctor') }}">
                                       <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path>
                                       </svg>
@@ -171,7 +171,7 @@
                         bg-neutral-900
                         border-neutral-900
                         focus:shadow-outline
-                      " white="" 70="" href="#">
+                      " white="" 70="" href="{{ route('admin.drug') }}">
                                       <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path>
                                       </svg>
@@ -197,7 +197,7 @@
                         bg-neutral-900
                         border-neutral-900
                         focus:shadow-outline
-                      " white="" 70="" href="#">
+                      " white="" 70="" href="{{ route('admin.prescription') }}">
                                       <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path>
                                       </svg>
@@ -205,32 +205,6 @@
                                   </a>
                               </li>
 
-                               <li>
-                                   <a class="
-                        inline-flex
-                        items-center
-                        w-full
-                        px-4
-                        py-2
-                        mt-1
-                        text-base
-                        transition
-                        duration-500
-                        ease-in-out
-                        transform
-                        border
-                        rounded-lg
-                        text-neutral-200
-                        bg-neutral-900
-                        border-neutral-900
-                        focus:shadow-outline
-                      " white="" 70="" href="#">
-                                       <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path>
-                                       </svg>
-                                       <span class="ml-4"> Drugs Inventory</span>
-                                   </a>
-                               </li>
                                  <li>
                                      <form action="{{route('logout')  }}" method="post">
                                          @csrf
@@ -266,7 +240,7 @@
 
 
                             </ul>
-                            <p class="px-4 pt-4 font-medium uppercase text-neutral-200"> Shortcuts </p>
+                            
                         </nav>
                     </div>
                     <div class="flex flex-shrink-0 p-4 px-4 bg-neutral-900">

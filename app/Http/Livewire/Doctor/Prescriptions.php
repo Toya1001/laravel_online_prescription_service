@@ -17,7 +17,7 @@ class Prescriptions extends Component
     public $addPrescription = false;
     public $singlePrescription;
     public $patientName = '';
-    public $drug, $quantity, $duration, $repeat, $directions, $doctors,  $drugs, $patient;
+    public $drug, $quantity, $duration, $repeat, $directions, $doctors, $patient,  $drugs;
 
     protected $rules =[
         'drug' => 'required',
@@ -40,17 +40,12 @@ class Prescriptions extends Component
 
     public function clear(){
         $this->patientName = "";
-        $this->patient = [];
 
     }
 
     public function updatedPatientName()
     {
 
-        $this->patient = User::where('fname', 'like', '%' . $this->patientName . '%')
-            ->orWhere('lname', 'like', '%' . $this->patientName . '%')
-            ->get()
-            ->toArray();
     }
 
     public function createPrescription()
@@ -71,7 +66,8 @@ class Prescriptions extends Component
     public function render()
     {
         $drugs= Drug::all();
-        $patient = Patient::all();
+        $patient = Patient::with('user')->get();
+        // dd($patient);
         $doctors = Doctor::with('user')->get();
         $docId = Doctor::where('user_id', Auth::id())->value('id');
         // dd($docId);

@@ -31,9 +31,9 @@
                                     <div class="relative w-full mb-3">
                                         <label class="block uppercase text-blueGray-600 text-xs font-bold mb-2" htmlfor="grid-password">Patient Name</label>
                                         <select wire:model="patientName" wire:keydown.backspace="clear" type="text" class="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150" placeholder="Enter First Name">
-                                            <option value-"">Select...</option>
+                                            <option value="">Select...</option>
                                             @foreach($patient as $patients)
-                                            <option value="{{ $patients->id }}">{{$patients->user->lname  }}, {{ $paitents->user->fname }}</option>
+                                            <option value="{{ $patients['id'] }}">{{$patients['user']['lname']  }}, {{ $paitents['user']['fname'] }}</option>
                                             @endforeach
                                         </select>
                                         @error('patientName')<span class="text-xs text-red-600">{{
