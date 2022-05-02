@@ -6,6 +6,7 @@ use App\Models\Doctor;
 use App\Models\Drug;
 use App\Models\Patient;
 use App\Models\Prescription;
+use App\Models\PrescriptionOrder;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
@@ -17,8 +18,14 @@ class Prescriptions extends Component
     public $addPrescription = false;
     public $prescriptionEdit = false;
     public $singlePrescription;
-    public $patientName, $singlePrescriptId, $pquantity, $doctorId, $rxNo;
-    public $drug, $quantity, $duration, $repeat, $directions, $dosage, $patient, $direction, $drugs, $pdosage, $pduration, $prepeat;
+    public $patientName = "";
+    public $dosage = ""; 
+    public $singlePrescriptId;
+    public $drug = "";
+    public $quantity = ""; 
+    public $duration = "";
+    public $repeat = "";
+    public $directions = ""; 
 
     protected $rules = [
         'drug' => 'required',
@@ -28,14 +35,6 @@ class Prescriptions extends Component
         'directions' => 'required',
         'dosage' => 'required',
         'patientName' => 'required',
-        'patient' => 'required',
-        'pdosage' => 'required',
-        'pquantity' => 'required',
-        'prepeat' => 'required',
-        'pduration' => 'required',
-        'direction' => 'required',
-        'drugs' => 'required',
-
     ];
 
     public function updated($propertyName)
@@ -43,13 +42,17 @@ class Prescriptions extends Component
         $this->validateOnly($propertyName);
     }
 
+    public function openForm(){
+        $this->addPrescription = true;
+        $this->reset(['dosage', 'patientName', 'drug', 'repeat', 'directions', 'duration', 'quantity']);
+    }
 
     public function createPrescription()
     {
         $this->validate();
         $this->doctorId = Doctor::where('user_id', Auth::id())->value('id');
         // dd($this->patientName);
-        Prescription::create([
+        $id = Prescription::create([
             'patient_id' => $this->patientName,
             'drug_id' => $this->drug,
             'doctor_id' => $this->doctorId,
@@ -59,41 +62,55 @@ class Prescriptions extends Component
             'directions' => $this->directions,
             'duration' => $this->duration,
             'repeat' => $this->repeat,
+        ])->id;
+
+        PrescriptionOrder::create([
+            'prescription_id' => $id,
+            'patient_id' => $this->patientName,
         ]);
         return redirect()->route('doctor.prescription');
     }
+
     public function editPrescription($id)
     {
         $this->prescriptionEdit = true;
         $onePrescript = Prescription::find($id);
-        $this->patient = $onePrescript->patient_id;
-        $this->drugs = $onePrescript->drug_id;
-        $this->pdosage = $onePrescript->dosage;
-        $this->pquantity = $onePrescript->quantity;
-        $this->direction = $onePrescript->directions;
-        $this->pduration = $onePrescript->duration;
-        $this->prepeat = $onePrescript->repeat;
-        $this->rxNo = $onePrescript->rx_no;
+        $this->patientName = $onePrescript->patient_id;
+        $this->drug = $onePrescript->drug_id;
+        $this->dosage = $onePrescript->dosage;
+        $this->quantity = $onePrescript->quantity;
+        $this->directions = $onePrescript->directions;
+        $this->duration = $onePrescript->duration;
+        $this->repeat = $onePrescript->repeat;
         $this->singlePrescriptId = $id;
+        // $this->reset('patientName');
+
     }
 
     public function updatePrescription()
     {
-
+        
+        // dd($this->drugs);
         $this->validate();
-
+        // $this->doctorId = Doctor::where('user_id', Auth::id())->value('id');
         Prescription::where('id', $this->singlePrescriptId)->update([
-            'patient_id' => $this->patient,
-            'drug_id' => $this->drugs,
-            'dosage' => $this->pdosage,
-            'quantity' => $this->pquantity,
-            'directions' => $this->direction,
-            'duration' => $this->pduration,
-            'repeat' => $this->prepeat,
-            'doctor_id' => $this->doctorId,
-            'rx_no' => $this->rxNo,
+            'patient_id' => $this->patientName,
+            'drug_id' => $this->drug,
+            'dosage' => $this->dosage,
+            'quantity' => $this->quantity,
+            'directions' => $this->directions,
+            'duration' => $this->duration,
+            'repeat' => $this->repeat,
+            // 'doctor_id' => $this->doctorId,
+            // 'rx_no' => $this->rxNo,
         ]);
+        $this->reset('dosage');
+        
         return redirect()->route('doctor.prescription');
+    }
+
+    public function deletePrescription($id){
+        Prescription::where('id', $id)->delete();
     }
 
     public function viewPrescription($id)
