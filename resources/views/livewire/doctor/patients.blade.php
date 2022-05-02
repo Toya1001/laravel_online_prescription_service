@@ -170,11 +170,6 @@
                                             $message }}</span>@enderror
                                     </div>
                                 </div>
-
-
-
-
-
                                 <button class="px-10 py-3 bg-blue-600 mt-2 ml-4 rounded font-semibold text-sm text-blue-100 hover:bg-blue-700">Add</button>
                             </div>
                     </form>

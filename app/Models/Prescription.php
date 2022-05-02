@@ -13,6 +13,7 @@ class Prescription extends Model
         'doctor_id',
         'drug_id',
         'dosage',
+        'rx_no',
         'quantity',
         'directions',
         'duration',
