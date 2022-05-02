@@ -35,7 +35,7 @@
                     cursor-pointer
                     text-neutral-200
                     hover:text-neutral-200
-                  "> wickedblocks </h2>
+                  "> {{ auth()->user()->user_type }} </h2>
                         </a>
                         <button class="hidden rounded-lg focus:outline-none focus:shadow-outline">
                             <svg fill="currentColor" viewBox="0 0 20 20" class="w-6 h-6">

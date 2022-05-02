@@ -156,8 +156,9 @@
                             <div>
                                 <div class="w-full">
                                     <div class="relative w-full mb-3">
+                                        <input type="hidden" wire:model="rxNo">
                                         <label class="block uppercase text-blueGray-600 text-xs font-bold mb-2" htmlfor="grid-password">Patient Name</label>
-                                        <select wire:model="patientName" type="text" class="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150" placeholder="Enter First Name">
+                                        <select wire:model="patient" type="text" class="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150" placeholder="Enter First Name">
                                             <option value="">Select...</option>
                                             @foreach($people as $person)
 
@@ -165,7 +166,7 @@
 
                                             @endforeach
                                         </select>
-                                        @error('patientName')<span class="text-xs text-red-600">{{
+                                        @error('patient')<span class="text-xs text-red-600">{{
                                             $message }}</span>@enderror
 
                                     </div>
@@ -175,13 +176,13 @@
                                             <label class="block uppercase text-blueGray-600 text-xs font-bold mb-2" htmlfor="grid-password">
                                                 Drug
                                             </label>
-                                            <select wire:model="drug" type="text" class="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150" placeholder="Enter First Name">
+                                            <select wire:model="drugs" type="text" class="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150" placeholder="Enter First Name">
                                                 <option value="">Select...</option>
                                                 @foreach($pdrugs as $pdrugs)
                                                 <option value="{{$pdrugs['id']}}"> {{$pdrugs['drug_name']}}</option>
                                                 @endforeach
                                             </select>
-                                            @error('drug')<span class="text-xs text-red-600">{{$message }}</span>@enderror
+                                            @error('drugs')<span class="text-xs text-red-600">{{$message }}</span>@enderror
                                         </div>
                                     </div>
                                     <div class="w-full">
@@ -189,8 +190,8 @@
                                             <label class="block uppercase text-blueGray-600 text-xs font-bold mb-2" htmlfor="grid-password">
                                                 Directions
                                             </label>
-                                            <input type="text" wire:model="directions" class="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150" placeholder="Enter Directions">
-                                            @error('directions')<span class="text-xs text-red-600">{{$message }}</span>@enderror
+                                            <input type="text" wire:model="direction" class="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150" placeholder="Enter Directions">
+                                            @error('direction')<span class="text-xs text-red-600">{{$message }}</span>@enderror
                                         </div>
                                     </div>
 
@@ -200,8 +201,8 @@
                                             <label class="block uppercase text-blueGray-600 text-xs font-bold mb-2" htmlfor="grid-password">
                                                 Dosage
                                             </label>
-                                            <input wire:model="dosage" type="text" class="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150" placeholder="Enter TRN">
-                                            @error('dosage')<span class="text-xs text-red-600">{{
+                                            <input wire:model="pdosage" type="text" class="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150" placeholder="Enter TRN">
+                                            @error('pdosage')<span class="text-xs text-red-600">{{
                                             $message }}</span>@enderror
                                         </div>
 
@@ -210,8 +211,8 @@
                                             <label class="block uppercase text-blueGray-600 text-xs font-bold mb-2" htmlfor="grid-password">
                                                 Duration
                                             </label>
-                                            <input type="text" wire:model="duration" class="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150" placeholder="Enter Address">
-                                            @error('duration')<span class="text-xs text-red-600">{{
+                                            <input type="text" wire:model="pduration" class="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150" placeholder="Enter Address">
+                                            @error('pduration')<span class="text-xs text-red-600">{{
                                             $message }}</span>@enderror
 
                                         </div>
@@ -224,8 +225,8 @@
                                             <label class="block uppercase text-blueGray-600 text-xs font-bold mb-2" htmlfor="grid-password">
                                                 Repeat
                                             </label>
-                                            <input wire:model="repeat" type="text" inputmode="numeric" class="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150" placeholder="Enter TRN">
-                                            @error('repeat')<span class="text-xs text-red-600">{{
+                                            <input wire:model="prepeat" type="text" inputmode="numeric" class="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150" placeholder="Enter TRN">
+                                            @error('prepeat')<span class="text-xs text-red-600">{{
                                             $message }}</span>@enderror
 
 
@@ -236,8 +237,8 @@
                                             <label class="block uppercase text-blueGray-600 text-xs font-bold mb-2" htmlfor="grid-password">
                                                 Quantity
                                             </label>
-                                            <input type="text" wire:model="quantity" class="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150" placeholder="Enter Address">
-                                            @error('quantity')<span class="text-xs text-red-600">{{
+                                            <input type="text" wire:model="pquantity" class="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150" placeholder="Enter Address">
+                                            @error('pquantity')<span class="text-xs text-red-600">{{
                                             $message }}</span>@enderror
 
                                         </div>
