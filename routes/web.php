@@ -54,7 +54,7 @@ Route::middleware(['auth', 'patient'])->group(function () {
     Route::view('patient', 'patient.dashboard')->name('patient.dashboard');
     Route::view('patient/prescription', 'patient.prescription')->name('patient.prescription');
     Route::view('patient/profile', 'patient.information')->name('patient.profile');
-    Route::view('patient/profile', 'patient.orders')->name('patient.order');
+    Route::view('patient/order', 'patient.orders')->name('patient.order');
 
 });
 
