@@ -37,5 +37,9 @@ class Patient extends Model
     public function prescriptionOrders(){
         return $this->hasMany(PrescriptionOrder::class);
     }
+
+    public function assignPatient(){
+        return $this->hasMany(AssignPatient::class);
+    }
 }
  

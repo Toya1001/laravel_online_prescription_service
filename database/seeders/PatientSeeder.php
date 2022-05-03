@@ -18,11 +18,11 @@ class PatientSeeder extends Seeder
     public function run()
     {
         $faker = \Faker\Factory::create();
-        for ($i = 0; $i < 10; $i++) {
-            $userId = rand(1, 10);
+        for ($i = 0; $i < 5; $i++) {
+            $userId = rand(1, 5);
             $patientData[] = [
                 'user_id' => $userId,
-                'mx_no' => "MX".$faker->randomNumber(10000,999999),
+                'mx_no' => "MX".$faker->randomNumber(),
                 'trn' =>  $faker->randomNumber(),
                 'gender' => $faker->randomElement(['Male', 'Female', 'Other']),
                 'dob' => $faker->date(),

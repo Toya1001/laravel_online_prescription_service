@@ -18,8 +18,8 @@ class PharmacistSeeder extends Seeder
     public function run()
     {
         $faker = \Faker\Factory::create();
-        for ($i = 0; $i < 10; $i++) {
-            $userId = rand(21,30);
+        for ($i = 0; $i < 5; $i++) {
+            $userId = rand(11,15);
             $pharmData[] = [
                 'user_id' => $userId,
                 'employee_id' => $faker->randomNumber(),

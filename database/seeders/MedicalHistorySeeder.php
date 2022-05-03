@@ -18,7 +18,7 @@ class MedicalHistorySeeder extends Seeder
 
         $faker = \Faker\Factory::create();
         for ($i = 0; $i < 10; $i++) {
-            $patientId = rand(1, 10);
+            $patientId = rand(1, 5);
             $patientData[] = [
                 'patient_id' => $patientId,
                 'allergies' => $faker->sentence($nbWords = 3, $variableNbWords = true),

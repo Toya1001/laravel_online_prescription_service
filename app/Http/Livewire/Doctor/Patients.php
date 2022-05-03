@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire\Doctor;
 
+use App\Models\AssignPatient;
 use App\Models\Doctor;
 use App\Models\MedicalHistory;
 use App\Models\Patient;
@@ -56,7 +57,7 @@ class Patients extends Component
             'password' => Hash::make('password'),
         ])->id;
 
-            Patient::create([
+           $patientId= Patient::create([
             'user_id' => $id,
             'mx_no' => $this->mxNo,
             'dob' => $this->dob,
@@ -66,7 +67,15 @@ class Patients extends Component
             'city' => $this->city,
             'parish' => $this->parish,
             'tel_no' => $this->phone
+        ])->id;
+
+        AssignPatient::create([
+            'doctor_id' => Doctor::where('user_id', Auth::id())->value('id'),
+            'patient_id' =>$patientId,
         ]);
+
+
+        
         return redirect()->route('doctor.patient');
     }
 

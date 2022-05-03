@@ -20,10 +20,10 @@ class PrescriptionSeeder extends Seeder
         $faker = \Faker\Factory::create();
 
         for ($i = 0; $i < 10; $i++) {
-            $patientId = rand(1, 10);
+            $patientId = rand(1, 5);
             $patientData[] = [
                 'patient_id' => $patientId,
-                'doctor_id' =>  rand(1, 10),
+                'doctor_id' =>  rand(1, 5),
                 'drug_id' =>  rand(1, 20),
                 'rx_no' => "RX".$faker->numberBetween(10000, 99999),
                 'dosage' => $faker->sentence($nbWords = 6, $variableNbWords = true),
