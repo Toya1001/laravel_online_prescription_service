@@ -181,13 +181,13 @@
             </div>
         </div>
         <div class="flex flex-col flex-1 w-0 overflow-hidden">
-            <main class="relative flex-1 overflow-y-auto focus:outline-none">
+            <main class="overflow-y-auto focus:outline-none">
                 <div class="py-6">
                     
                     <div class="px-4 mx-auto max-w-7xl sm:px-6 md:px-8">
                        
                         <div class="py-4">
-                            <div class="rounded-lg bg-neutral-50 h-max">@yield('content')</div>
+                            <div class="rounded-lg bg-neutral-50">@yield('content')</div>
 
                         </div>
                         <!-- Do not cross the closing tag underneath this coment-->

@@ -5,7 +5,7 @@
 
 
      @if($addDoctor)
-      <section class="absolute left-0 top-0 flex justify-center items-center z-10 bg-black bg-opacity-75 w-full h-full py-1">
+      <section class="absolute left-0 top-0 flex justify-center items-center z-10 bg-black bg-opacity-75 w-full">
           <div class="w-full lg:w-6/12 px-4 mt-6">
               <div class="bg-white flex-col min-w-0 break-words w-full mb-6 shadow-lg rounded-lg bg-blueGray-100 border-0">
                   <div class="rounded-t bg-white mb-0 px-6 py-6   ">
@@ -65,18 +65,18 @@
                                           <label class="block uppercase text-blueGray-600 text-xs font-bold mb-2" htmlfor="grid-password">
                                               License No
                                           </label>
-                                          <input wire:model="license" type="text" inputmode="numeric" class="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150" placeholder="Enter TRN">
+                                          <input wire:model="license" type="text" inputmode="numeric" class="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150" placeholder="Enter License No">
                                           @error('license')<span class="text-xs text-red-600">{{
                                                        $message }}</span>@enderror
                                       </div>
                                   </div>
 
-                                  <div class="w-full lg:w-6/12 px-4">
+                                  <div class="w-full lg:w-12/12 px-4">
                                       <div class="relative w-full mb-3">
                                           <label class="block uppercase text-blueGray-600 text-xs font-bold mb-2" htmlfor="grid-password">
                                               Company Name
                                           </label>
-                                          <input type="text" wire:model="company" class="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150" placeholder="Enter Town/City">
+                                          <input type="text" wire:model="company" class="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150" placeholder="Enter Company Name">
                                           @error('company')<span class="text-xs text-red-600">{{
                                                        $message }}</span>@enderror
                                       </div>
@@ -88,7 +88,7 @@
                                           <label class="block uppercase text-blueGray-600 text-xs font-bold mb-2" htmlfor="grid-password">
                                               Work Address
                                           </label>
-                                          <input type="text" wire:model="address" class="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150" placeholder="Enter Address">
+                                          <input type="text" wire:model="address" class="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150" placeholder="Enter Work Address">
                                           @error('address')<span class="text-xs text-red-600">{{
                                                        $message }}</span>@enderror
                                       </div>
@@ -187,7 +187,7 @@
                                              </div>
                                         </div>
 
-                                        <div class="w-full lg:w-6/12 px-4">
+                                        <div class="w-full lg:w-12/12 px-4">
                                             <div class="relative w-full mb-3">
                                                 <label class="block uppercase text-blueGray-600 text-xs font-bold mb-2" htmlfor="grid-password">
                                                     Company Name

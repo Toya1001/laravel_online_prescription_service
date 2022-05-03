@@ -12,7 +12,12 @@ class Pharmacist extends Component
 {
     public $addPharmacist = false;
     public $editPharmacist = false;
-    public  $firstName, $lastName, $email, $license, $company, $address;
+    public  $firstName = "";
+    public  $lastName = "";
+    public $email = "";
+    public  $license = "";
+    public $company = "";
+    public $address = "";
     public $pharmacistId, $userId;
     use WithPagination;
 
@@ -24,6 +29,12 @@ class Pharmacist extends Component
         'email' => 'required|email|unique:users,email',
         'license' => 'required'
     ];
+
+    public function openForm()
+    {
+        $this->addPharmacist = true;
+        $this->reset(['firstName', 'lastName', 'email', 'license', 'company', 'address']);
+    }
 
     public function createPharmacist()
     {

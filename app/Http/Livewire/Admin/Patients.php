@@ -41,7 +41,7 @@ class Patients extends Component
     public function createPatient()
     {
         $this->validate();
-        Http::post('http://192.168.0.4:8080/api/user', [
+        Http::post('http://192.168.0.5:8080/api/user', [
             'fname' => $this->firstName,
             'lname' => $this->lastName,
             'email' => $this->email,
@@ -49,11 +49,11 @@ class Patients extends Component
             'password' => Hash::make('password')
         ]);
 
-        $data = Http::get('http://192.168.0.4:8080/api/user')->json();
+        $data = Http::get('http://192.168.0.5:8080/api/user')->json();
         $data = end($data);
         $userId = reset($data);
        
-        Http::post('http://192.168.0.4:8080/api/patient', [
+        Http::post('http://192.168.0.5:8080/api/patient', [
             'user_id' => $userId,
             'mx_no' => $this->mxNo,
             'dob' => $this->dob,
@@ -70,7 +70,7 @@ class Patients extends Component
     public function editPatient($id)
     {
         $this->patientEdit = true;
-        $info = Http::get('http://192.168.0.4:8080/api/patient/' . $id)->json();
+        $info = Http::get('http://192.168.0.5:8080/api/patient/' . $id)->json();
         // dd($info);
         $this->dob = $info['Patient']['dob'];
         $this->gender = $info['Patient']['gender'];
@@ -84,7 +84,7 @@ class Patients extends Component
         $this->patientID = $id;
 
 
-        $data = Http::get('http://192.168.0.4:8080/api/user/' . $this->userID)->json();
+        $data = Http::get('http://192.168.0.5:8080/api/user/' . $this->userID)->json();
         $this->firstName = $data['fname'];
         $this->lastName = $data['lname'];
         $this->email = $data['email'];
@@ -93,13 +93,13 @@ class Patients extends Component
     public function updatePatient()
     {
         $this->validate();
-        Http::put('http://192.168.0.4:8080/api/user/' . $this->userID, [
+        Http::put('http://192.168.0.5:8080/api/user/' . $this->userID, [
             'fname' => $this->firstName,
             'lname' => $this->lastName,
             'email' => $this->email,
         ]);
 
-        Http::put('http://192.168.0.4:8080/api/patient/' . $this->patientID, [
+        Http::put('http://192.168.0.5:8080/api/patient/' . $this->patientID, [
             'user_id' => $this->userID,
             'mx_no' => $this->mxNo,
             'dob' => $this->dob,
@@ -120,7 +120,7 @@ class Patients extends Component
     {
         $this->history = true;
         // dd($id);
-        $this->historyData = Http::get('http://192.168.0.4:8080/api/history/' . $id)->json();
+        $this->historyData = Http::get('http://192.168.0.5:8080/api/history/' . $id)->json();
         // dd($this->historyData['Patient']['allergies']);
         $this->allergies = $this->historyData['Patient']['allergies'] ?? "";
         $this->illness = $this->historyData['Patient']['health_conditions'] ?? "";
@@ -135,14 +135,14 @@ class Patients extends Component
     public function updateMedicalHistory()
     {
         if ($this->medicalHistoryId === 0) {
-            Http::post('http://192.168.0.4:8080/api/history' . $this->medicalHistoryId, [
+            Http::post('http://192.168.0.5:8080/api/history' . $this->medicalHistoryId, [
                 'patient_id' => $this->patientId,
                 'allergies' => $this->allergies,
                 'health_conditions' => $this->illness,
                 'pregnant_nursing' => $this->pregnant
             ]);
         } else {
-            Http::put('http://192.168.0.4:8080/api/history/' . $this->medicalHistoryId, [
+            Http::put('http://192.168.0.5:8080/api/history/' . $this->medicalHistoryId, [
                 'patient_id' => $this->patientId,
                 'allergies' => $this->allergies,
                 'health_conditions' => $this->illness,
@@ -154,7 +154,7 @@ class Patients extends Component
 
     public function render()
     {
-        $patient = Http::get('http://192.168.0.4:8080/api/patient')->collect();
+        $patient = Http::get('http://192.168.0.5:8080/api/patient')->collect();
         //    dd($patient);
         return view('livewire.admin.patients', ['patient' => $patient,]);
     }
