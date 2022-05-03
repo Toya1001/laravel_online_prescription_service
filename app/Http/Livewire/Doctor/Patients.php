@@ -24,13 +24,13 @@ class Patients extends Component
     protected $rules = [
         'firstName' => 'required|string',
         'lastName' => 'required|string',
-        'email' => 'required|email|unique:users,email',
+        'email' => 'required|email',
         'trn' => 'required',
         'address' => 'required|string',
         'city' => 'required|string',
         'parish' => 'required',
         'phone' => 'required',
-        'mxNo' => 'required|unique:patients,mx_no',
+        'mxNo' => 'required',
         'dob' => 'required',
         'gender' => 'required',
     ];
@@ -144,12 +144,6 @@ class Patients extends Component
     public function updateMedicalHistory()
     {
         if ($this->medicalHistoryId === 0) {
-            // dd($this->medicalHistoryId); 
-            if ($this->pregnant === "Yes") {
-                $this->pregnant = 1;
-            } else { 
-                $this->pregnant = 0;
-            }
             MedicalHistory::where('id', $this->MedicalHistoryId)->update([
                 'patient_id' => $this->patientId,
                 'allergies' => $this->allergies,
@@ -177,10 +171,12 @@ class Patients extends Component
     public function render()
     {
         $docId = Doctor::where('user_id', Auth::id())->value('id');
-        $patient = Prescription::where('doctor_id', $docId)->get();
-        // dd($patient);
+        $patientpresc = Prescription::where('doctor_id', $docId)->get();
+        $addedPatient = AssignPatient::where('doctor_id', $docId)->get();
+        // dd($patientpresc);
         return view('livewire.doctor.patients', [
-            'patient' => $patient,
+            'patient' => $patientpresc,
+            'addedPatient' => $addedPatient,
         ]);
     }
 }

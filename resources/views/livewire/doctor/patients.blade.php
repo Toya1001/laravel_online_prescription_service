@@ -423,6 +423,7 @@
         <div class="container px-5 py-24 mx-auto">
             <div class="-my-8 divide-y-2 divide-gray-100">
                  @if(!empty($patient))
+                
                 @foreach ($patient as $doctor)
                 <div class="py-8 flex flex-wrap md:flex-nowrap border-2">
                     <div class="md:w-64 md:mb-0 mb-6 flex-shrink-0 flex flex-col">
@@ -440,7 +441,8 @@
                         <p class="leading-relaxed"><span>Email Address: </span> {{ $doctor->patient->user->email }}</p>
                         <p class="leading-relaxed"><span>Contact No.: </span>{{ $doctor->patient->tel_no }}</p>
 
-                        <button wire:click="medicalHistory({{ $doctor->patient->medical_history->id?? 0}})" type="button" class="border border-indigo-500 bg-black text-white rounded-md px-4 py-2 mx-2 mt-4 transition duration-500 ease select-none hover:bg-indigo-600 focus:outline-none focus:shadow-outline">
+                        
+                        <button wire:click="medicalHistory({{ $doctor->patient->medical_history->id ?? 0}})" type="button" class="border border-indigo-500 bg-black text-white rounded-md px-4 py-2 mx-2 mt-4 transition duration-500 ease select-none hover:bg-indigo-600 focus:outline-none focus:shadow-outline">
                             Medical History
                         </button>
 
@@ -467,6 +469,57 @@
             </div>
         </div>
     </section>
+
+     <section class="text-gray-600 body-font overflow-hidden">
+         <h1 class="font-medium text-center text-2xl"> Recently Added</h1>
+         <div class="container px-5 py-24 mx-auto">
+             <div class="-my-8 divide-y-2 divide-gray-100">
+                 @if(!empty($addedPatient))
+                 @foreach ($addedPatient as $doctor)
+                 <div class="py-8 flex flex-wrap md:flex-nowrap border-2">
+                     <div class="md:w-64 md:mb-0 mb-6 flex-shrink-0 flex flex-col">
+                         <span class="font-semibold title-font text-gray-700">CATEGORY</span>
+                         <span class="mt-1 text-gray-500 text-sm">12 Jun 2019</span>
+                     </div>
+                     <div class="md:flex-grow">
+                         <h2 class="text-xl font-medium text-gray-900 title-font mb-2">{{ $doctor->patient->user->fname}} {{
+                            $doctor->patient->user->lname}}</h2>
+
+                         <p class="leading-relaxed"><span class="font-medium"><span>Address: </span>{{
+                                $doctor->patient->address }}</span>
+
+                             {{ $doctor->patient->city}}, {{ $doctor->patient->parish }} </p>
+                         <p class="leading-relaxed"><span>Email Address: </span> {{ $doctor->patient->user->email }}</p>
+                         <p class="leading-relaxed"><span>Contact No.: </span>{{ $doctor->patient->tel_no }}</p>
+
+                         <button wire:click="medicalHistory({{ $doctor->patient->medical_history->id?? 0}})" type="button" class="border border-indigo-500 bg-black text-white rounded-md px-4 py-2 mx-2 mt-4 transition duration-500 ease select-none hover:bg-indigo-600 focus:outline-none focus:shadow-outline">
+                             Medical History
+                         </button>
+
+                         <button wire:click.prevent="editPatient({{ $doctor->patient->id }})" type="button" class="border border-indigo-500 bg-black text-white rounded-md px-4 py-2 mx-2 mt-4 transition duration-500 ease select-none hover:bg-indigo-600 focus:outline-none focus:shadow-outline">
+                             Edit Patient
+                         </button>
+
+
+                     </div>
+                 </div>
+                 @endforeach
+                 @else
+                 <div class="py-8 flex flex-wrap md:flex-nowrap">
+
+
+
+                     <p class="leading-relaxed">No Records found</p>
+
+                 </div>
+
+
+
+                 @endif
+             </div>
+         </div>
+     </section>
+
 
 
 </div>

@@ -89,7 +89,7 @@
                          <p class="leading-relaxed"><span>Email Address: </span> {{ $patient['user']['email'] }}</p>
                          <p class="leading-relaxed"><span>Contact No.: </span>{{ $patient['tel_no'] }}</p>
 
-                         <button wire:click="medicalHistory({{ $patient['medical_history']['id']?? 0}})" type="button" class="border border-indigo-500 bg-black text-white rounded-md px-4 py-2 mx-2 mt-4 transition duration-500 ease select-none hover:bg-indigo-600 focus:outline-none focus:shadow-outline">
+                         <button wire:click="medicalHistory({{ $patient['medicalHistory']['id'] ?? 0}})" type="button" class="border border-indigo-500 bg-black text-white rounded-md px-4 py-2 mx-2 mt-4 transition duration-500 ease select-none hover:bg-indigo-600 focus:outline-none focus:shadow-outline">
                              Medical History
                          </button>
 

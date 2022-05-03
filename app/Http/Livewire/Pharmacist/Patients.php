@@ -15,9 +15,9 @@ class Patients extends Component
         $this->history = true;
         // dd($id);
         $this->historyData = MedicalHistory::find($id);
-        // dd($this->historyData['Patient']['allergies']);
+        // dd($this->historyData);
         $this->allergies = $this->historyData->allergies ?? "";
-        $this->illness = $this->historyData->health->conditions ?? "";
+        $this->illness = $this->historyData->health_conditions ?? "";
         if ($this->historyData->pregnant_nursing ?? "") {
             $this->pregnant = "Yes";
         }
@@ -27,7 +27,8 @@ class Patients extends Component
     }
     public function render()
     {
-        $patient = Patient::all();
+        $patient = Patient::with('medicalHistory')->get();
+        // dd($patient);
         return view('livewire.pharmacist.patients', [
             'patient' => $patient,
         ]);
