@@ -18,7 +18,7 @@
                 <div class="flex-auto px-4 lg:px-10 py-10 pt-0">
 
 
-                    <form wire:submit.prevent="createDoctor()">
+                    <form wire:submit.prevent="createPharmacist()">
                         <h6 class="text-blueGray-400 text-sm mt-3 mb-6 font-bold uppercase">
                             Doctor Details
                         </h6>
@@ -117,7 +117,7 @@
                 <div class="flex-auto px-4 lg:px-10 py-10 pt-0">
 
 
-                    <form wire:submit.prevent="createDoctor()">
+                    <form wire:submit.prevent="updatePharmacist()">
                         <h6 class="text-blueGray-400 text-sm mt-3 mb-6 font-bold uppercase">
                             Doctor Details
                         </h6>

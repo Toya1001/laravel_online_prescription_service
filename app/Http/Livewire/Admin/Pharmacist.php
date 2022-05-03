@@ -52,7 +52,8 @@ class Pharmacist extends Component
             'user_id' => $id,
             'license_no' => $this->license,
             'work_name' => $this->company,
-            'work_address' => $this->address
+            'work_address' => $this->address,
+            'employee_id' => "EM".mt_rand(1000,9999),
         ]);
         return redirect()->route('admin.pharmacist');
     }
@@ -87,6 +88,7 @@ class Pharmacist extends Component
             'work_name' => $this->company,
             'work_address' => $this->address
         ]);
+        return redirect()->route('admin.pharmacist');
     }
 
     public function deletePharmacist($id){
@@ -96,6 +98,7 @@ class Pharmacist extends Component
     public function render()
     {
         $pharmacist = ModelsPharmacist::with('user')->paginate(4);
+        // dd($pharmacist);
         return view('livewire.admin.pharmacist', [
             'pharmacist' => $pharmacist,
         ]);

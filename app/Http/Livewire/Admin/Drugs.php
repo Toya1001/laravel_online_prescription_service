@@ -17,7 +17,7 @@ class Drugs extends Component
 
     protected $rules = [
         'brandName' => 'required|string',
-        'genName' => 'required}',
+        'genName' => 'required',
         'description' => 'required',
         'quantity' => 'required',
         'batch' => 'required',
@@ -72,9 +72,9 @@ class Drugs extends Component
 
     public function updateDrug()
     {
-        $this->validate();
+        // $this->validate();
 
-        Drug::where('id', $this->drug_id)->update([
+        Drug::where('id', $this->drugId)->update([
             'drug_name' => $this->drugName,
             'generic_name' => $this->genericName,
             'description' => $this->descript,

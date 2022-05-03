@@ -113,7 +113,7 @@
                  <div class="flex-auto px-4 lg:px-10 py-10 pt-0">
 
 
-                     <form wire:submit.prevent="createDrug()">
+                     <form wire:submit.prevent="updateDrug()">
                          <h6 class="text-blueGray-400 text-sm mt-3 mb-6 font-bold uppercase">
                              Drug Details
                          </h6>
@@ -181,7 +181,7 @@
                                          @error('expiry')<span class="text-xs text-red-600">{{$message }}</span>@enderror
                                      </div>
                                  </div>
-                                 <button class="px-10 py-3 bg-blue-600 mt-2 ml-4 rounded font-semibold text-sm text-blue-100 hover:bg-blue-700">Add</button>
+                                 <button class="px-10 py-3 bg-blue-600 mt-2 ml-4 rounded font-semibold text-sm text-blue-100 hover:bg-blue-700">Update</button>
                              </div>
                      </form>
                  </div>

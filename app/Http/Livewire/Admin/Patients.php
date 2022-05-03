@@ -14,13 +14,13 @@ class Patients extends Component
     public $history = false;
     public $patientEdit =  false;
     public $historyData, $allergies, $illness, $pregnant, $medicalHistoryId, $patientId, $addPatient, $patientID, $userID;
-    public $firstName, $lastName, $email, $trn, $gender, $address, $city, $parish, $dob, $phone, $mxNo;
+    public $firstName, $lastName, $email, $trn, $gender, $address, $city, $parish, $dob, $phone, $mxNo, $emailAddress;
 
     protected $rules = [
         'firstName' => 'required|string|min:2',
         'lastName' => 'required|string|min:2',
-        'email' => 'required|email|unique:users,email',
-        'trn' => 'required|min:9',
+        'email' => 'required|email',
+        'trn' => 'required',
         'address' => 'required|string',
         'city' => 'required|string',
         'parish' => 'required',
@@ -28,6 +28,7 @@ class Patients extends Component
         'mxNo' => 'required',
         'dob' => 'required',
         'gender' => 'required',
+        'emailAddress' =>'required',
     ];
 
     public function updated($propertyName){
@@ -92,7 +93,8 @@ class Patients extends Component
 
     public function updatePatient()
     {
-        $this->validate();
+        dd($this->userID);
+        // $this->validate();
         Http::withToken('1|4hOjHuSZBHFlMtftXYeAJ3jTfQhdUdEiaF5GGmy6')->put('http://192.168.0.5:8080/api/user/' . $this->userID, [
             'fname' => $this->firstName,
             'lname' => $this->lastName,
@@ -118,6 +120,7 @@ class Patients extends Component
 
     public function medicalHistory($id)
     {
+        
         $this->history = true;
         // dd($id);
         $this->historyData = Http::withToken('1|4hOjHuSZBHFlMtftXYeAJ3jTfQhdUdEiaF5GGmy6')->get('http://192.168.0.5:8080/api/history/' . $id)->json();
@@ -129,21 +132,27 @@ class Patients extends Component
         }
         $this->pregnant = "No";
         $this->medicalHistoryId = $id;
-        $this->patientId = $this->historyData['Patient']['id'] ?? "";
+        $this->patientId = $this->historyData['Patient']['id']?? "";
     }
 
     public function updateMedicalHistory()
     {
-        if (empty($this->medicalHistoryId)) {
+    //    dd($this->patientId);
+        if (is_null($this->medicalHistoryId)) {
+            $newPatientId = Http::withToken('1|4hOjHuSZBHFlMtftXYeAJ3jTfQhdUdEiaF5GGmy6')->get('http://192.168.0.5:8080/api/patient/')->json();
+            $data = end($newPatientId);
+            $userId = reset($data);
             Http::withToken('1|4hOjHuSZBHFlMtftXYeAJ3jTfQhdUdEiaF5GGmy6')->post('http://192.168.0.5:8080/api/history',[
-                'patient_id' => $this->patientId,
+                'patient_id' => $userId,
                 'allergies' => $this->allergies,
                 'health_conditions' => $this->illness,
                 'pregnant_nursing' => $this->pregnant
             ]);
         } else {
+            $history = Http::withToken('1|4hOjHuSZBHFlMtftXYeAJ3jTfQhdUdEiaF5GGmy6')->get('http://192.168.0.5:8080/api/history/' . $this->medicalHistoryId)->json();
+            // dd($history['Patient']['patient_id']);
             Http::withToken('1|4hOjHuSZBHFlMtftXYeAJ3jTfQhdUdEiaF5GGmy6')->put('http://192.168.0.5:8080/api/history/' . $this->medicalHistoryId, [
-                'patient_id' => $this->patientId,
+                'patient_id' => $history['Patient']['patient_id'],
                 'allergies' => $this->allergies,
                 'health_conditions' => $this->illness,
                 'pregnant_nursing' => $this->pregnant

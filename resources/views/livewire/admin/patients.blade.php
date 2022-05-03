@@ -410,8 +410,8 @@
                                         </label>
                                         <select wire:model="pregnant" class="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150" placeholder="Enter Email Address">
                                         <option value="">Select...</option>
-                                        <option value="1">Yes</option>
-                                        <option value="0">No</option>
+                                        <option value="Yes">Yes</option>
+                                        <option value="No">No</option>
                                         </select>
                                         @error('pregnant')<span class="text-xs text-red-600">{{
                                             $message }}</span>@enderror
@@ -448,7 +448,7 @@
                         <p class="leading-relaxed"><span>Email Address: </span> {{ $patient['user']['email'] }}</p>
                         <p class="leading-relaxed"><span>Contact No.: </span>{{ $patient['tel_no'] }}</p>
 
-                        <button wire:click="medicalHistory({{ $patient['medical_history']['id']?? 0}})" type="button" class="border border-indigo-500 bg-black text-white rounded-md px-4 py-2 mx-2 mt-4 transition duration-500 ease select-none hover:bg-indigo-600 focus:outline-none focus:shadow-outline">
+                        <button wire:click="medicalHistory({{ $patient['medical_history']['id'] ?? 'null'}})" type="button" class="border border-indigo-500 bg-black text-white rounded-md px-4 py-2 mx-2 mt-4 transition duration-500 ease select-none hover:bg-indigo-600 focus:outline-none focus:shadow-outline">
                             Medical History
                         </button>
 

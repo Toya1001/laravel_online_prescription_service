@@ -23,9 +23,9 @@ class Doctor extends Component
 
     protected $rules = [
         'firstName' => 'required|string|min:2',
-        'lastName' => 'required|string|min2',
+        'lastName' => 'required|string|min:2',
         'company' => 'required|string',
-        'email' => 'required|email|unique:users,email',
+        'email' => 'required|email',
         'address' => 'required|string',
         'license' => 'required'
     ];
