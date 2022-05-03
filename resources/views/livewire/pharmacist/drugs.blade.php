@@ -83,7 +83,7 @@
                                         <label class="block uppercase text-blueGray-600 text-xs font-bold mb-2" htmlfor="grid-password">
                                             Expiration Date
                                         </label>
-                                        <input type="date" wire:model="expiryDate" class="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150" placeholder="Enter Address">
+                                        <input type="date" wire:model="expiryDate" class="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150">
                                         @error('expiryDate')<span class="text-xs text-red-600">{{$message }}</span>@enderror
                                     </div>
                                 </div>
@@ -181,7 +181,7 @@
                                         @error('expiry')<span class="text-xs text-red-600">{{$message }}</span>@enderror
                                     </div>
                                 </div>
-                                <button class="px-10 py-3 bg-blue-600 mt-2 ml-4 rounded font-semibold text-sm text-blue-100 hover:bg-blue-700">Add</button>
+                                <button class="px-10 py-3 bg-blue-600 mt-2 ml-4 rounded font-semibold text-sm text-blue-100 hover:bg-blue-700">Update</button>
                             </div>
                     </form>
                 </div>

@@ -4,6 +4,7 @@ namespace App\Http\Livewire\Patient;
 
 use App\Models\Patient;
 use App\Models\Prescription;
+use App\Models\PrescriptionOrder;
 use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
 
@@ -26,7 +27,12 @@ class Dashboard extends Component
 
     public function render()
     {
-        
-        return view('livewire.patient.dashboard');
+        $patientId = Patient::where('user_id', Auth::id())->value('id'); 
+        $orders = PrescriptionOrder::where('patient_id', $patientId)->count();
+        $prescription = Prescription::where('patient_id', $patientId)->count();
+        return view('livewire.patient.dashboard', [
+            'orders' => $orders,
+            'prescription' => $prescription,
+        ]);
     }
 }

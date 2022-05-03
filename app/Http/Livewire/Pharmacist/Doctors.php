@@ -8,11 +8,16 @@ use Illuminate\Support\Facades\Hash;
 use Livewire\Component;
 use Livewire\WithPagination;
 
-class Doctor extends Component
+class Doctors extends Component
 {
     public $doctorEdit = false;
     public $addDoctor =  false;
-    public  $firstName, $lastName, $email, $license, $company, $address;
+    public  $firstName = "";
+    public  $lastName = "";
+    public  $email = "";
+    public $license = "";
+    public  $company = "";
+    public  $address = "";
     public $userId, $doctorId;
     use WithPagination;
 
@@ -24,6 +29,12 @@ class Doctor extends Component
         'address' => 'required|string',
         'license' => 'required'
     ];
+
+    public function openForm()
+    {
+        $this->addDoctor = true;
+        $this->reset(['firstName', 'lastName', 'email', 'license', 'company', 'address']);
+    }
 
     public function updated($propertyName)
     {
@@ -48,7 +59,7 @@ class Doctor extends Component
             'work_name' => $this->company,
             'work_address' => $this->address
         ]);
-        return redirect()->route('admin.doctor');
+        return redirect()->route('pharmacist.doctor');
     }
 
     public function editDoctor($id)
@@ -81,7 +92,7 @@ class Doctor extends Component
             'lname' => $this->lastName,
             'email' => $this->email
         ]);
-        return redirect()->route('admin.doctor');
+        return redirect()->route('pharmacist.doctor');
     }
 
     public function deleteDoctor($id)
@@ -91,7 +102,7 @@ class Doctor extends Component
     public function render()
     {
         $doctor = ModelsDoctor::with('user')->paginate(4);
-        return view('livewire.pharmacist.doctor', [
+        return view('livewire.pharmacist.doctors', [
             'doctor' => $doctor,
         ]);
     }

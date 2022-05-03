@@ -12,7 +12,12 @@ class Doctor extends Component
 {
     public $doctorEdit = false;
     public $addDoctor =  false;
-    public  $firstName, $lastName, $email, $license, $company, $address;
+    public  $firstName = "";
+    public  $lastName = "";
+    public $email = "";
+    public  $license = "";
+    public $company = ""; 
+    public $address = "";
     public $userId, $doctorId;
     use WithPagination;
 
@@ -24,6 +29,12 @@ class Doctor extends Component
         'address' => 'required|string',
         'license' => 'required'
     ];
+
+    public function openForm()
+    {
+        $this->addDoctor = true;
+        $this->reset(['firstName', 'lastName', 'email', 'license', 'company', 'address']);
+    }
 
     public function updated($propertyName){
         $this->validateOnly($propertyName);

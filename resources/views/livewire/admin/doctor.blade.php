@@ -1,5 +1,5 @@
 <div>
-     <button wire:click.prevent="$set('addDoctor', true)" type="button" class="border border-indigo-500 bg-black text-white rounded-md px-4 py-2 mx-2 mt-4 transition duration-500 ease select-none hover:bg-indigo-600 focus:outline-none focus:shadow-outline">
+     <button wire:click.prevent="openForm()" type="button" class="border border-indigo-500 bg-black text-white rounded-md px-4 py-2 mx-2 mt-4 transition duration-500 ease select-none hover:bg-indigo-600 focus:outline-none focus:shadow-outline">
          Add Doctor
      </button>
 
@@ -181,7 +181,7 @@
                                                   </label>
                                                   <input wire:model="license" type="text" inputmode="numeric"
                                                        class="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
-                                                       placeholder="Enter TRN">
+                                                       placeholder="Enter License No.">
                                                   @error('license')<span class="text-xs text-red-600">{{
                                                        $message }}</span>@enderror
                                              </div>
@@ -192,7 +192,7 @@
                                                 <label class="block uppercase text-blueGray-600 text-xs font-bold mb-2" htmlfor="grid-password">
                                                     Company Name
                                                 </label>
-                                                <input type="text" wire:model="company" class="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150" placeholder="Enter Town/City">
+                                                <input type="text" wire:model="company" class="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150" placeholder="Enter Company Name">
                                                 @error('company')<span class="text-xs text-red-600">{{
                                                        $message }}</span>@enderror
                                             </div>
@@ -208,7 +208,7 @@
                                                   </label>
                                                   <input type="text" wire:model="address"
                                                        class="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
-                                                       placeholder="Enter Address">
+                                                       placeholder="Enter Work Address">
                                                   @error('address')<span class="text-xs text-red-600">{{
                                                        $message }}</span>@enderror
                                              </div>
