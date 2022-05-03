@@ -17,7 +17,7 @@ class MedicalHistorySeeder extends Seeder
     {
 
         $faker = \Faker\Factory::create();
-        for ($i = 0; $i < 10; $i++) {
+        for ($i = 0; $i < 5; $i++) {
             $patientId = rand(1, 5);
             $patientData[] = [
                 'patient_id' => $patientId,

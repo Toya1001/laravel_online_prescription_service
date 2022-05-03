@@ -116,7 +116,7 @@
 </section>
 
 <section class="text-gray-600 body-font">
-    <h1 class="font-medium text-center text-blue-700 mt-8 text-6xl"> Features</h1>
+    <h1 class="font-medium text-center text-blue-700 mt-8 text-6xl"> How it Works</h1>
     <div id="features" class="container px-5 py-24 mx-auto flex flex-wrap">
         <div class="flex flex-wrap w-full">
             <div class="lg:w-2/5 md:w-1/2 md:pr-10 md:py-6">

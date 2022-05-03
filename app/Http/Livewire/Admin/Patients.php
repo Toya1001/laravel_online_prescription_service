@@ -134,8 +134,8 @@ class Patients extends Component
 
     public function updateMedicalHistory()
     {
-        if ($this->medicalHistoryId === 0) {
-            Http::withToken('1|DpOFffnn6t6vBt0dsqHFEutbhTpP98I9tIw5TUO8')->post('http://192.168.0.5:8080/api/history' . $this->medicalHistoryId, [
+        if (empty($this->medicalHistoryId)) {
+            Http::withToken('1|DpOFffnn6t6vBt0dsqHFEutbhTpP98I9tIw5TUO8')->post('http://192.168.0.5:8080/api/history',[
                 'patient_id' => $this->patientId,
                 'allergies' => $this->allergies,
                 'health_conditions' => $this->illness,
