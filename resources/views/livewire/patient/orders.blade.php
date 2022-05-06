@@ -2,7 +2,7 @@
 
      @if (session()->has('message'))
 
-     <div class="w-full text-white bg-blue-500">
+     <div x-data="{show:true}" x-init="setTimeout(()=>show = false, 3000)" x-show="show" class="w-full text-white bg-blue-500">
          <div class="container flex items-center justify-between px-6 py-4 mx-auto">
              <div class="flex">
                  <svg viewBox="0 0 40 40" class="w-6 h-6 fill-current">
