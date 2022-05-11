@@ -27,6 +27,9 @@ class Orders extends Component
         $refillNo = Prescription::where('id', $id)->value('repeat');
         $orders = PrescriptionOrder::where('prescription_id', $id)->count();
         if ($orders > $refillNo) {
+            Prescription::where('id', $id)->update([
+                'is_Active' => 0,
+            ]);
             session()->flash('message', 'Reached Refill limit. Unable to process order');
         } else {
             if ($quantity <= $inventory) {
