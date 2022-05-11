@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::create('medical_histories', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('patient_id')->constrained();   
+            $table->foreignId('patient_id')->constrained()->onDelete('cascade');   
             $table->string('allergies');
             $table->string('health_conditions');
             $table->boolean('pregnant_nursing')->default('0');
