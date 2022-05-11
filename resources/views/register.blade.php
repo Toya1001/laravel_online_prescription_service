@@ -14,8 +14,11 @@
 
             <div>
                 <h1 class="text-white font-bold text-4xl font-sans">E-Prescription Service</h1>
-                <p class="text-white mt-1">The most popular peer to peer lending at SEA</p>
+                <p class="text-white mt-1">The most popular online prescription service</p>
+                <form action={{ route('faq') }}>
                 <button type="submit" class="block w-28 bg-white text-indigo-800 mt-4 py-2 rounded-2xl font-bold mb-2">Read More</button>
+                </form>
+
             </div>
             <div class="absolute -bottom-32 -left-40 w-80 h-80 border-4 rounded-full border-opacity-30 border-t-8"></div>
             <div class="absolute -bottom-40 -left-20 w-80 h-80 border-4 rounded-full border-opacity-30 border-t-8"></div>
@@ -25,8 +28,8 @@
         <div class="flex md:w-1/2 justify-center py-10 items-center bg-white">
             <form action="{{ route('register') }}" method="post" class="bg-white">
                 @csrf
-                <h1 class="text-gray-800 font-bold text-2xl mb-1">Hello Again!</h1>
-                <p class="text-sm font-normal text-gray-600 mb-7">Welcome Back</p>
+                <h1 class="text-gray-800 font-bold text-2xl uppercase mb-8">Register</h1>
+                {{-- <p class="text-sm font-normal text-gray-600 mb-7">Welcome Back</p> --}}
                 <div class="flex items-center border-2 py-2 px-3 rounded-2xl mb-4">
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-400" viewBox="0 0 20 20" fill="currentColor">
                         <path fill-rule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clip-rule="evenodd" />

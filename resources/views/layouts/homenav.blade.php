@@ -99,16 +99,6 @@
                     hover:text-blue-600
                     focus:outline-none focus:shadow-outline
                   " href="#">Fill New Rx</a>
-                            <a class="
-                    block
-                    px-4
-                    py-2
-                    mt-2
-                    text-sm text-gray-500
-                    md:mt-0
-                    hover:text-blue-600
-                    focus:outline-none focus:shadow-outline
-                  " href="#">Link #3</a>
                         </div>
                     </div>
                 </div>
