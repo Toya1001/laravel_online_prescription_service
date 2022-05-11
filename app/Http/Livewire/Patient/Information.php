@@ -10,7 +10,7 @@ use Livewire\Component;
 class Information extends Component
 {
     public $profileEdit= false;
-    public $firstName, $lastName, $email, $trn, $gender, $address, $city, $parish, $dob, $phone, $mxNo;
+    public $firstName, $lastName, $email, $trn, $gender, $address, $city, $parish, $dob, $phone, $mxNo, $userID;
 
     protected $rules = [
         'firstName' => 'required|string',
@@ -46,26 +46,23 @@ class Information extends Component
         $this->lastName = $person->lname ?? "";
         $this->email = $person->email ?? "";
         $this->userID = $id;
-         // $data = Patient::where('user_id', $id)->get();
-        // dd($data);
-        // $this->dob = $data->dob ?? "";
-        // $this->gender = $data->gender ?? "";
-        // $this->trn = $data->trn ?? "";
-        // $this->address = $data->address ?? "";
-        // $this->city = $data->city?? "";
-        // $this->parish = $data->parish  ?? "";
-        // $this->phone =  $data->tel_no ?? "";
-        // $this->userID = $data->user_id ?? "";
-        // $this->mxNo = $data->mx_no ?? "";
-        // $this->patientID = $id ?? "";
-        // dd($this->userID);
 
-      
-    
+         $data = Patient::where('user_id', $this->userID)->get();
+        // dd($data);
+        $this->dob = $data['0']->dob ?? "";
+        $this->gender = $data['0']->gender ?? "";
+        $this->trn = $data['0']->trn ?? "";
+        $this->address = $data['0']->address ?? "";
+        $this->city = $data['0']->city?? "";
+        $this->parish = $data['0']->parish  ?? "";
+        $this->phone =  $data['0']->tel_no ?? "";
+        $this->userID = $data['0']->user_id ?? "";
+        $this->mxNo = $data['0']->mx_no ?? "";
     }
 
 
     public function updateProfile(){
+        // dd($this->userID);
        User::where('id', $this->userID)->update([
            'fname'=> $this->firstName,
            'lname'=> $this->lastName,
@@ -85,7 +82,7 @@ class Information extends Component
                 'tel_no' => $this->phone
            ]);
        } else{
-           Patient::where('user_id', $this->userId)->update([
+           Patient::where('user_id', $this->userID)->update([
                 'user_id' => $this->userID,
                 'mx_no' => $this->mxNo,
                 'dob' => $this->dob,

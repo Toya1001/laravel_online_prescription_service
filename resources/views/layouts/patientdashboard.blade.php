@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="{{ url('css/app.css') }}">
     <script src="https://kit.fontawesome.com/812b520597.js" crossorigin="anonymous"></script>
+    <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
     <title>@yield('title')</title>
     @livewireStyles
 
@@ -50,8 +51,8 @@
                                 <path fill-rule="evenodd" d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z" clip-rule="evenodd"></path>
                             </svg>
                         </button>
-                        
-                       
+
+
                     </div>
                 </div>
             </div>
@@ -93,7 +94,7 @@
                                         <span class="bg-gray-200 text-gray-800 ml-3 text-sm font-medium inline-flex items-center justify-center px-2 rounded-full">New</span>
                                     </a>
                                 </li>
-                               
+
                                 <li>
                                     <a href="{{ route('patient.order') }}" class="text-base text-gray-900 font-normal rounded-lg hover:bg-gray-100 flex items-center p-2 group ">
                                         <svg class="w-6 h-6 text-gray-500 flex-shrink-0 group-hover:text-gray-900 transition duration-75" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
@@ -113,18 +114,18 @@
                                 <li>
                                     <form action="{{ route('logout') }}" method="post">
                                         @csrf
-                                    <button href="https://demo.themesberg.com/windster/authentication/sign-in/" class="text-base text-gray-900 font-normal rounded-lg hover:bg-gray-100 flex items-center p-2 group ">
-                                        <svg class="w-6 h-6 text-gray-500 flex-shrink-0 group-hover:text-gray-900 transition duration-75" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                                            <path fill-rule="evenodd" d="M3 3a1 1 0 00-1 1v12a1 1 0 102 0V4a1 1 0 00-1-1zm10.293 9.293a1 1 0 001.414 1.414l3-3a1 1 0 000-1.414l-3-3a1 1 0 10-1.414 1.414L14.586 9H7a1 1 0 100 2h7.586l-1.293 1.293z" clip-rule="evenodd"></path>
-                                        </svg>
-                                        <span class="ml-3 flex-1 whitespace-nowrap">Sign Out</span>
-                                    </button>
-                                </form>
+                                        <button href="https://demo.themesberg.com/windster/authentication/sign-in/" class="text-base text-gray-900 font-normal rounded-lg hover:bg-gray-100 flex items-center p-2 group ">
+                                            <svg class="w-6 h-6 text-gray-500 flex-shrink-0 group-hover:text-gray-900 transition duration-75" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                                <path fill-rule="evenodd" d="M3 3a1 1 0 00-1 1v12a1 1 0 102 0V4a1 1 0 00-1-1zm10.293 9.293a1 1 0 001.414 1.414l3-3a1 1 0 000-1.414l-3-3a1 1 0 10-1.414 1.414L14.586 9H7a1 1 0 100 2h7.586l-1.293 1.293z" clip-rule="evenodd"></path>
+                                            </svg>
+                                            <span class="ml-3 flex-1 whitespace-nowrap">Sign Out</span>
+                                        </button>
+                                    </form>
 
                                 </li>
-                                
+
                             </ul>
-                            
+
                         </div>
                     </div>
                 </div>
@@ -133,16 +134,16 @@
             <div id="main-content" class="h-full w-full bg-gray-50 relative overflow-y-auto lg:ml-64">
                 <main>
                     <div class="pt-6 px-4">
-                       @yield('content')
+                        @yield('content')
                     </div>
                 </main>
-                
+
             </div>
         </div>
         <script async defer src="https://buttons.github.io/buttons.js"></script>
         <script src="https://demo.themesberg.com/windster/app.bundle.js"></script>
     </div>
-@livewireScripts
+    @livewireScripts
 
 </body>
 </html>
