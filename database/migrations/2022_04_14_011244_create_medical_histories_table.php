@@ -18,7 +18,7 @@ return new class extends Migration
             $table->foreignId('patient_id')->constrained()->onDelete('cascade');   
             $table->string('allergies');
             $table->string('health_conditions');
-            $table->boolean('pregnant_nursing')->default('0');
+            $table->string('pregnant_nursing')->default('No');
             $table->timestamps();
         });
     }

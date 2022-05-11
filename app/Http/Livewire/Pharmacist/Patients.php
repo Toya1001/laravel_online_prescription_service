@@ -25,6 +25,8 @@ class Patients extends Component
         $this->medicalHistoryId = $id;
         $this->patientId = $this->historyData->id ?? "";
     }
+
+    
     public function render()
     {
         $patient = Patient::with('medicalHistory')->get();

@@ -14,7 +14,7 @@
                  <div class="flex-auto px-4 lg:px-10 py-10 pt-0">
 
 
-                     <form wire:submit.prevent="updateMedicalHistory()">
+                     <form wire:submit.prevent="">
                          <h6 class="text-blueGray-400 text-sm mt-3 mb-6 font-bold uppercase">
                              Patient Details
                          </h6>
@@ -51,16 +51,13 @@
                                          </label>
                                          <select wire:model="pregnant" class="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150" placeholder="Enter Email Address">
                                              <option value="">Select...</option>
-                                             <option value="1">Yes</option>
-                                             <option value="0">No</option>
+                                             <option value="Yes">Yes</option>
+                                             <option value="No">No</option>
                                          </select>
                                          @error('pregnant')<span class="text-xs text-red-600">{{
                                             $message }}</span>@enderror
                                      </div>
                                  </div>
-
-
-                                 <button class="flex items-center justify-center h-12 px-6 w-64 bg-blue-600 mt-8 rounded font-semibold text-sm text-blue-100 hover:bg-blue-700">Update</button>
                              </div>
                      </form>
                  </div>

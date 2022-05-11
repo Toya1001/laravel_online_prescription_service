@@ -88,7 +88,7 @@
                     md:mt-0
                     hover:text-blue-600
                     focus:outline-none focus:shadow-outline
-                  " href="#">Quick Refill</a>
+                  " href="{{ route('patient.prescription') }}">Quick Refill</a>
                             <a class="
                     block
                     px-4
