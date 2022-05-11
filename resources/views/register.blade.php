@@ -13,7 +13,8 @@
         <div class="relative overflow-hidden md:flex w-1/2 bg-gradient-to-l from-blue-400 to-emerald-400 i justify-around items-center hidden">
 
             <div>
-                <h1 class="text-white font-bold text-4xl font-sans">E-Prescription Service</h1>
+                <h1 class="text-white font-bold text-4xl font-sans"><a href="/">E-Prescription Service</a></h1>
+
                 <p class="text-white mt-1">The most popular online prescription service</p>
                 <form action={{ route('faq') }}>
                 <button type="submit" class="block w-28 bg-white text-indigo-800 mt-4 py-2 rounded-2xl font-bold mb-2">Read More</button>
@@ -71,7 +72,16 @@
                 <button type="submit" class="block w-full bg-indigo-600 mt-4 py-2 rounded-2xl text-white font-semibold mb-2">Register</button>
                 
                 {{-- <span class="text-sm ml-2 hover:text-blue-500 cursor-pointer">Forgot Password ?</span> --}}
+                <div class="flex items-center justify-end mt-4">
+                    <a class="underline text-sm text-gray-600 hover:text-gray-900" href="{{ route('login') }}">
+                        {{ __('Already registered?') }}
+                    </a>
+
             </form>
+            
+
+            </div>
+
         </div>
     </div>
 

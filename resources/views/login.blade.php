@@ -12,7 +12,7 @@
     <div class="h-screen flex">
         <div class="flex w-1/2 bg-gradient-to-tl from-blue-400 to-emerald-400 i justify-around items-center">
             <div>
-                <h1 class="text-white font-bold text-4xl font-sans">E-Prescription Service</h1>
+                <h1 class="text-white font-bold text-4xl font-sans"><a href="/">E-Prescription Service</a></h1>
                 <p class="text-white mt-1">The most popular peer to peer lending at SEA</p>
                 <button type="submit" class="block w-28 bg-white text-indigo-800 mt-4 py-2 rounded-2xl font-bold mb-2">Read More</button>
             </div>
@@ -35,7 +35,14 @@
                     <input class="pl-2 outline-none border-none" type="password" name="password" id="" placeholder="Password" />
                 </div>
                 <button type="submit" class="block w-full bg-emerald-400 mt-4 py-2 rounded-2xl text-white font-semibold mb-2">Login</button>
-                <span class="text-sm ml-2 hover:text-blue-500 cursor-pointer">Forgot Password ?</span>
+                <div class="flex items-center justify-end mt-4">
+                    @if (Route::has('password.request'))
+                    <a class="underline text-sm text-gray-600 hover:text-gray-900" href="{{ route('password.request') }}">
+                        {{ __('Forgot your password?') }}
+                    </a>
+                    @endif
+                </div>
+
             </form>
         </div>
     </div>
