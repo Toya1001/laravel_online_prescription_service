@@ -10,6 +10,9 @@ use Livewire\Component;
 class Orders extends Component
 
 {
+    public $singlePrescription;
+    public $viewInfo = false;
+    
     public function updateOrder($id)
     {
         $prescriptionId = PrescriptionOrder::where('id', $id)->value('prescription_id');
@@ -37,6 +40,13 @@ class Orders extends Component
         
     }
 
+
+    public function viewPrescription($id)
+    {
+        $this->viewInfo = true;
+        $this->singlePrescription = Prescription::find($id);
+    }
+
     public function pickUpOrder($id)
     {
         $status = PrescriptionOrder::where('id', $id)->value('status');
@@ -44,8 +54,9 @@ class Orders extends Component
             PrescriptionOrder::where('id', $id)->update([
                 'status' => 'Ready for Pick Up',
             ]);
+            session()->flash('message', 'Order Updated');
         }
-        session()->flash('message', 'Order Updated');
+        
     }
     public function render()
     {

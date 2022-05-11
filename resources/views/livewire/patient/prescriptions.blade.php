@@ -73,7 +73,7 @@
                   tracking-widest
                   text-black
                   uppercase
-                "> {{ $singlePrescription->patient->user->fname }} {{ $singlePrescription->patient->user->lname }} </h2>
+                "> <span class="font-medium">Name: </span>{{ $singlePrescription->patient->user->fname }} {{ $singlePrescription->patient->user->lname }} </h2>
 
                         <h5 class="
                   mb-8
@@ -82,14 +82,16 @@
                   leading-none
                   tracking-tighter
                   text-neutral-600
-                "> {{ $singlePrescription->patient->address }} {{ $singlePrescription->patient->city }}, {{ $singlePrescription->patient->parish }}</h5>
+                "><span class="font-medium">Address: </span> {{ $singlePrescription->patient->address }} {{ $singlePrescription->patient->city }}, {{ $singlePrescription->patient->parish }}</h5>
+
                         <h4 class="
                   mb-8
                   text-xl
                   font-medium
                   leading-none
                   tracking-tighter
-                  text-neutral-600">{{ $singlePrescription->drug->drug_name }} </h4>
+                  text-neutral-600"> <span class="font-medium">Drug Name: </span>{{ $singlePrescription->drug->drug_name }} </h4>
+
                         <p class="mx-auto text-base leading-relaxed text-black"> <span class="font-medium">Dosage: </span>{{ $singlePrescription->dosage }} </p>
                         <p class="mx-auto text-base leading-relaxed text-black"> <span class="font-medium">Directions: </span>{{ $singlePrescription->directions }} </p>
                         <p class="mx-auto text-base leading-relaxed text-black"> <span class="font-medium">Quantity: </span>{{ $singlePrescription->quantity }} </p>

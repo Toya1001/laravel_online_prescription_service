@@ -20,6 +20,91 @@
         </div>
         @endif
 
+        @if($viewInfo)
+        <div class="overflow-y-auto fixed inset-0 z-10" aria-labelledby="modal-title" role="dialog" aria-modal="true">
+
+            <div class="
+          flex
+          items-end
+          justify-center
+          min-h-screen
+          px-4
+          pt-4
+          pb-20
+          text-center
+          sm:block sm:p-0
+        ">
+                <div class="transition-opacity bg-gray-500 bg-opacity-75" aria-hidden="true"></div>
+                <span class="hidden sm:inline-block sm:align-middle sm:h-screen" aria-hidden="true">​</span>
+                <div class="
+            inline-block
+            p-5
+            overflow-hidden
+            text-left
+            align-bottom
+            transition-all
+            transform
+            bg-white
+            rounded-lg
+            shadow-2xl
+            lg:p-16
+            sm:my-8 sm:align-middle sm:max-w-xl sm:w-full
+          ">
+                    <div>
+                        <div class="text-center flex justify-end"><i wire:click="$set('viewInfo', false)" class="fas fa-times text-2xl cursor-pointer"></i></div>
+
+                        <h2 class="
+                  mb-4
+                  text-2xl
+                  font-semibold
+                 
+                  text-black
+                  uppercase
+                  text-center
+                "> Prescription </h2>
+
+                        <div class="mt-3 text-left sm:mt-5">
+                            <h2 class="
+                  mb-4
+                  text-2xl
+                  font-semibold
+                  tracking-widest
+                  text-black
+                  uppercase
+                "> <span class="font-medium">Name: </span>{{ $singlePrescription->patient->user->fname }} {{ $singlePrescription->patient->user->lname }} </h2>
+
+                            <h5 class="
+                  mb-8
+                  text-lg
+                  font-semibold
+                  leading-none
+                  tracking-tighter
+                  text-neutral-600
+                "><span class="font-medium">Address: </span> {{ $singlePrescription->patient->address }} {{ $singlePrescription->patient->city }}, {{ $singlePrescription->patient->parish }}</h5>
+
+                            <h4 class="
+                  mb-8
+                  text-xl
+                  font-medium
+                  leading-none
+                  tracking-tighter
+                  text-neutral-600"> <span class="font-medium">Drug Name: </span>{{ $singlePrescription->drug->drug_name }} </h4>
+
+                            <p class="mx-auto text-base leading-relaxed text-black"> <span class="font-medium">Dosage: </span>{{ $singlePrescription->dosage }} </p>
+                            <p class="mx-auto text-base leading-relaxed text-black"> <span class="font-medium">Directions: </span>{{ $singlePrescription->directions }} </p>
+                            <p class="mx-auto text-base leading-relaxed text-black"> <span class="font-medium">Quantity: </span>{{ $singlePrescription->quantity }} </p>
+                            <p class="mx-auto text-base leading-relaxed text-black"> <span class="font-medium">Duration: </span>{{ $singlePrescription->duration }} </p>
+                            <p class="mx-auto text-base leading-relaxed text-black"> <span class="font-medium">Repeat: </span>{{ $singlePrescription->repeat }} </p>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+
+        @endif
+
+
 
     <!-- component -->
     <table class="border-collapse w-full">
@@ -41,7 +126,8 @@
                 </td>
                 <td class="w-full lg:w-auto p-3 text-gray-800 text-center border border-b text-center block lg:table-cell relative lg:static">
                     <span class="lg:hidden absolute top-0 left-0 bg-blue-200 px-2 py-1 text-xs font-bold uppercase">Rx No</span>
-                    {{ $order->prescription->rx_no }}
+                    <button wire:click="viewPrescription({{ $order->prescription->id }})">{{ $order->prescription->rx_no }}</button>
+
                 </td>
                 <td class="w-full lg:w-auto p-3 text-gray-800 text-center border border-b text-center block lg:table-cell relative lg:static">
                     <span class="lg:hidden absolute top-0 left-0 bg-blue-200 px-2 py-1 text-xs font-bold uppercase">Drug Name</span>
