@@ -24,7 +24,7 @@ return new class extends Migration
             $table->longText('directions');
             $table->bigInteger('duration');
             $table->bigInteger('repeat')->default('0');
-            $table->boolean('is_Active')->default('1');
+            $table->boolean('is_active')->default('1');
             $table->timestamps();
         });
     }

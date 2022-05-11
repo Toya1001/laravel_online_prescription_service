@@ -18,6 +18,7 @@ class Prescription extends Model
         'directions',
         'duration',
         'repeat',
+        'is_active'
     ];
 
     public function patient(){
