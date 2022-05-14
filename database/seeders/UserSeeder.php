@@ -5,6 +5,7 @@ namespace Database\Seeders;
 use App\Models\User;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Str;
 
 
@@ -17,6 +18,14 @@ class UserSeeder extends Seeder
      */
     public function run()
     {
+        User::create([
+            'fname' => 'admin',
+            'lname' =>'admin',
+            'email' => 'admin@admin.com',
+            'password' => Hash::make('password'),
+            'user_type' => 'Admin',
+            'remember_token' => Str::random(10),
+        ]);
 
         $faker = \Faker\Factory::create();
         for ($i = 0; $i < 5; $i++) {
