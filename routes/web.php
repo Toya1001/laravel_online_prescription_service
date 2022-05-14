@@ -39,7 +39,6 @@ Route::middleware(['auth', 'doctor'])->group(function () {
 });
 
 Route::middleware(['auth', 'pharmacist'])->group(function () {
-    //
     Route::view('pharmacist', 'pharmacist.dashboard')->name('pharmacist.dashboard');
     Route::view('pharmacist/patient', 'pharmacist.patients')->name('pharmacist.patient');
     Route::view('pharmacist/drug', 'pharmacist.drugs')->name('pharmacist.drug');
@@ -50,12 +49,10 @@ Route::middleware(['auth', 'pharmacist'])->group(function () {
 });
 
 Route::middleware(['auth', 'patient'])->group(function () {
-
     Route::view('patient', 'patient.dashboard')->name('patient.dashboard');
     Route::view('patient/prescription', 'patient.prescription')->name('patient.prescription');
     Route::view('patient/profile', 'patient.information')->name('patient.profile');
     Route::view('patient/order', 'patient.orders')->name('patient.order');
-
 });
 
 // Route::view('/test', 'test');
