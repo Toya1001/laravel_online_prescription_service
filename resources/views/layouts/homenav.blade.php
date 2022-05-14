@@ -145,7 +145,7 @@
                 focus:ring-2
                 focus:ring-offset-2
                 focus:ring-gray-500
-              "> Sign in </button>
+              "> Log In </button>
                     </form>
                     <form action="{{route('register')}}">
                         <button class="
