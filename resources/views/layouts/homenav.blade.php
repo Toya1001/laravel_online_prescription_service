@@ -141,7 +141,7 @@
                 duration-500
                 ease-in-out
                 transform
-                border-2 border-white
+             
                 shadow-md
                 hover:bg-emerald-400
                 hover:text-white
@@ -167,7 +167,8 @@
                 transform
                 bg-blue-600
                 rounded-xl
-                hover:bg-blue-700
+                hover:bg-emerald-400
+                hover:text-white
                 focus:outline-none
                 focus:ring-2
                 focus:ring-offset-2

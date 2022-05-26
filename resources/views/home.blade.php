@@ -87,6 +87,9 @@
                       ease-in-out
                       transform
                       border-2 border-blue-700
+                      hover:bg-emerald-400
+                      hover:text-white
+                      hover:border-emerald-400
                       shadow-md
                       rounded-xl
                       focus:outline-none
