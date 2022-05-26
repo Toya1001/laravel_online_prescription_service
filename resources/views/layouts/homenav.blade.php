@@ -10,10 +10,12 @@
 
 </head>
 <body>
-    <div class="container w-full max-w-7xl">
+    <div class="container m-0 max-w-screen-2xl bg-gradient-to-tl from-blue-400 to-emerald-400">
+
+
         <div x-data="{ open: false }" class="
           flex flex-col
-          max-w-screen-xl
+         max-w-screen-2xl
           p-5
           mx-auto
           md:items-center md:justify-between md:flex-row md:px-6
@@ -24,7 +26,7 @@
               text-lg
               font-bold
               tracking-tighter
-              text-blue-600
+              text-white
               transition
               duration-500
               ease-in-out
@@ -39,14 +41,14 @@
                     </svg>
                 </button>
             </div>
-            <nav :class="{'flex': open, 'hidden': !open}" class="flex-col items-center flex-grow hidden pb-4 border-blue-600 md:pb-0 md:flex md:justify-end md:flex-row lg:border-l-2 lg:pl-2">
+            <nav :class="{'flex': open, 'hidden': !open}" class="flex-col items-center flex-grow hidden pb-4 border-white md:pb-0 md:flex md:justify-end md:flex-row lg:border-l-2 lg:pl-2">
                 <a class="
               px-4
               py-2
               mt-2
-              text-sm text-gray-500
+              text-sm text-white
               md:mt-0
-              hover:text-blue-600
+              hover:text-white
               focus:outline-none focus:shadow-outline
             " href="{{ route('about') }}">About</a>
                 <div @click.away="open = false" class="relative" x-data="{ open: false }">
@@ -57,9 +59,9 @@
                 px-4
                 py-2
                 mt-2
-                text-sm text-left text-gray-500
+                text-sm text-left text-white
                 md:w-auto md:inline md:mt-0
-                hover:text-blue-600
+                hover:text-white
                 focus:outline-none focus:shadow-outline
               ">
                         <span>Manage Rx</span>
@@ -78,15 +80,15 @@
                 shadow-lg
                 md:w-48
               " style="display: none">
-                        <div class="px-2 py-2 bg-white rounded-md shadow">
+                        <div class="px-2 py-2 bg-blue-400 rounded-md shadow">
                             <a class="
                     block
                     px-4
                     py-2
                     mt-2
-                    text-sm text-gray-500
+                    text-sm text-white
                     md:mt-0
-                    hover:text-blue-600
+                    hover:text-white
                     focus:outline-none focus:shadow-outline
                   " href="{{ route('patient.prescription') }}">Quick Refill</a>
                             <a class="
@@ -94,9 +96,9 @@
                     px-4
                     py-2
                     mt-2
-                    text-sm text-gray-500
+                    text-sm text-white
                     md:mt-0
-                    hover:text-blue-600
+                    hover:text-white
                     focus:outline-none focus:shadow-outline
                   " href="#">Fill New Rx</a>
                         </div>
@@ -108,9 +110,9 @@
               px-4
               py-2
               mt-2
-              text-sm text-gray-500
+              text-sm text-white
               md:mt-0
-              hover:text-blue-600
+              hover:text-white
               focus:outline-none focus:shadow-outline
             " href="{{ route('faq') }}">FAQs</a>
                 <a class="
@@ -118,9 +120,9 @@
               px-4
               py-2
               mt-2
-              text-sm text-gray-500
+              text-sm text-white
               md:mt-0
-              hover:text-blue-600
+              hover:text-white
               focus:outline-none focus:shadow-outline
             " href="{{ route('contact') }}">Contact</a>
 
@@ -130,6 +132,7 @@
                 items-center
                 block
                 px-10
+                bg-white
                 py-2.5
                 text-base
                 font-medium
@@ -140,6 +143,8 @@
                 transform
                 border-2 border-white
                 shadow-md
+                hover:bg-emerald-400
+                hover:text-white
                 rounded-xl
                 focus:outline-none
                 focus:ring-2

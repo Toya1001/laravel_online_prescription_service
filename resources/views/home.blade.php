@@ -3,7 +3,10 @@
 
 @section('content')
 
-<section class="w-full bg-gradient-to-r from-blue-400 to-emerald-400">
+<section style="background-image: url('https://images.pexels.com/photos/593451/pexels-photo-593451.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');" class="w-full bg-cover bg-fixed ">
+
+
+<div class="w-full bg-gray-900 bg-opacity-50">
 
     <div class="
           relative
@@ -38,7 +41,7 @@
                   text-base
                   leading-relaxed
                   text-white
-                "> Free and Premium themes, UI Kit's, templates and landing pages built with Tailwind CSS, HTML &amp; Next.js. </p>
+                "> Fill your prescription without the hassle and the wait </p>
                     <div class="flex justify-center w-full max-w-2xl gap-2 mx-auto mt-6">
                         <div class="mt-3 rounded-lg sm:mt-0">
                             <form action="{{ route('register') }}">
@@ -57,11 +60,12 @@
                       bg-white
                       lg:px-10
                       rounded-xl
-                      hover:bg-white
+                      hover:bg-emerald-400
+                      hover:text-white
                       focus:outline-none
                       focus:ring-2
                       focus:ring-offset-2
-                      focus:ring-blue-500
+                      focus:ring-blue-400
                     "> Get Started </button>
                     </form>
 
@@ -113,6 +117,8 @@
             </div> --}}
         </section>
     </div>
+    </div>
+
 </section>
 
 <section class="text-gray-600 body-font">
@@ -199,7 +205,8 @@
 
 
 <section>
-    <div class="px-4 py-12 mx-auto max-w-7xl sm:px-6 md:px-12 lg:px-24 lg:py-24 bg-gradient-to-r from-blue-400 to-emerald-400">
+    <div class="px-4 py-12 mx-auto max-w-screen-2xl sm:px-6 md:px-12 lg:px-24 lg:py-24 bg-gradient-to-r from-blue-400 to-emerald-400">
+
 
         <div class="flex flex-col w-full mb-12 text-left lg:text-center">
             <p class="
@@ -208,7 +215,7 @@
               mt-8
               text-base
               leading-relaxed
-              text-center text-gray-500
+              text-center text-white
             "> Free and Premium themes, UI Kit's, templates and landing pages built with Tailwind CSS, HTML &amp; Next.js. </p>
             <a class="
               mx-auto
